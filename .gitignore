@@ -2,3 +2,13 @@
 /bin
 /src
 /pkg
+/cli/peers
+/insuranceCA/ca
+/insuranceCA/tls
+/policeCA/ca
+/policeCA/tls
+/repairShopCA/ca
+/repairShopCA/tls
+/shopCA/ca
+/shopCA/tls
+/web/certs

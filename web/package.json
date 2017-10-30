@@ -2,14 +2,6 @@
   "name": "blockchain-for-insurance",
   "version": "2.1.0",
   "description": "A Blockchain sample NodeJS application for the insurance industry.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ammilanov/blockchain-for-insurance"
-  },
-  "author": {
-    "name": "Angel Milanov",
-    "email": "angel.milanov@gmail.com"
-  },
   "license": "Apache-2.0",
   "engines": {
     "node": ">=6.x",
