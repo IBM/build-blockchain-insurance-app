@@ -1,0 +1,71 @@
+---
+Profiles:
+  FourOrgsGenesis:
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+      - *OrdererOrg
+    Consortiums:
+      InsuranceConsortium:
+        Organizations:
+        - *InsuranceOrg
+        - *ShopOrg
+        - *RepairShopOrg
+        - *PoliceOrg
+  FourOrgsChannel:
+    Consortium: InsuranceConsortium
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - *InsuranceOrg
+      - *ShopOrg
+      - *RepairShopOrg
+      - *PoliceOrg
+
+Organizations:
+- &OrdererOrg
+  Name: OrdererOrg
+  ID: OrdererMSP
+  MSPDir: cli/peers/ordererOrganizations/orderer-org/msp
+- &InsuranceOrg
+  Name: InsuranceOrgMSP
+  ID: InsuranceOrgMSP
+  MSPDir: cli/peers/peerOrganizations/insurance-org/msp
+  AnchorPeers:
+  - Host: insurance-peer
+    Port: 7051
+- &ShopOrg
+  Name: ShopOrgMSP
+  ID: ShopOrgMSP
+  MSPDir: cli/peers/peerOrganizations/shop-org/msp
+  AnchorPeers:
+  - Host: shop-peer
+    Port: 7051
+- &RepairShopOrg
+  Name: RepairShopOrgMSP
+  ID: RepairShopOrgMSP
+  MSPDir: cli/peers/peerOrganizations/repairshop-org/msp
+  AnchorPeers:
+  - Host: repairshop-peer
+    Port: 7051
+- &PoliceOrg
+    Name: PoliceOrgMSP
+    ID: PoliceOrgMSP
+    MSPDir: cli/peers/peerOrganizations/police-org/msp
+    AnchorPeers:
+    - Host: police-peer
+      Port: 7051
+
+Orderer: &OrdererDefaults
+  OrdererType: solo
+  Addresses:
+  - orderer0:7050
+  BatchTimeout: 2s
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+  Organizations:
+
+Application: &ApplicationDefaults
+  Organizations:

@@ -1,0 +1,41 @@
+extends _layout
+
+block content
+  .ibm-columns
+    .ibm-col-5-1
+    .ibm-col-5-3
+      .network-container
+        .network-circle
+        .ibm-card.insurance-peer
+          .ibm-card__content
+              a(href='/insurance')
+                h3.ibm-h3 #{ __('Insurance') }
+              p.ibm-ind-link
+                a.ibm-forward-link(href='/insurance/self-service')
+                  | #{ __('Go To The Claim Self-Service') }
+              p.ibm-ind-link
+                a.ibm-forward-link(href='/insurance/claim-processing')
+                  | #{ __('Go To The Claim Processing') }
+              p.ibm-ind-link
+                a.ibm-forward-link(href='/insurance/contract-management')
+                  | #{ __('Go To The Contract Management') }
+        .ibm-card.shop-peer
+          .ibm-card__content
+            a(href='/shop')
+              h3.ibm-h3 #{ __('Shop') }
+            p.ibm-ind-link
+              a.ibm-forward-link(href='/shop') #{ __('Go To The Shop Peer') }
+        .ibm-card.police-peer
+          .ibm-card__content
+            a(href='/police')
+              h3.ibm-h3 #{ __('Police') }
+            p.ibm-ind-link
+              a.ibm-forward-link(href='/police')
+                | #{ __('Go To The Police Peer') }
+        .ibm-card.repair-shop-peer
+          .ibm-card__content
+            a(href='/repair-shop')
+              h3.ibm-h3 #{ __('Repair Shop') }
+            p.ibm-ind-link
+              a.ibm-forward-link(href='/repair-shop')
+                | #{ __('Go To The Repair Shop Peer') }

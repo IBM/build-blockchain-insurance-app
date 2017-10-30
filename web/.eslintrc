@@ -1,0 +1,97 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": [
+    "react",
+    "async-await"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "classes": true,
+      "impliedStrict": true,
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jquery": true,
+    "mocha": true
+  },
+  "rules": {
+    "quotes": "off",
+    "no-console": "off",
+    "no-debugger": "warn",
+    "no-var": "warn",
+    "no-constant-condition": "off",
+    "semi": [
+      "warn",
+      "always"
+    ],
+    "no-trailing-spaces": "off",
+    "eol-last": "off",
+    "no-unused-vars": "off",
+    "no-underscore-dangle": "off",
+    "no-alert": "off",
+    "no-lone-blocks": "off",
+    "jsx-quotes": [
+      "warn",
+      "prefer-single"
+    ],
+    "react/display-name": [
+      "warn",
+      {
+        "ignoreTranspilerName": false
+      }
+    ],
+    "react/forbid-prop-types": [
+      "warn",
+      {
+        "forbid": [
+          "any"
+        ]
+      }
+    ],
+    "react/jsx-boolean-value": "warn",
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-curly-spacing": "warn",
+    "react/jsx-indent-props": "off",
+    "react/jsx-key": "warn",
+    "react/jsx-max-props-per-line": "off",
+    "react/jsx-no-bind": [
+      "warn",
+      {
+        "ignoreRefs": true
+      }
+    ],
+    "react/jsx-no-duplicate-props": "warn",
+    "react/jsx-no-literals": "off",
+    "react/jsx-no-undef": "warn",
+    "react/jsx-pascal-case": "warn",
+    "react/jsx-sort-prop-types": "off",
+    "react/jsx-sort-props": "off",
+    "react/jsx-uses-react": "warn",
+    "react/jsx-uses-vars": "warn",
+    "react/no-danger": "warn",
+    "react/no-did-mount-set-state": "warn",
+    "react/no-did-update-set-state": "warn",
+    "react/no-direct-mutation-state": "warn",
+    "react/no-multi-comp": "warn",
+    "react/no-set-state": "off",
+    "react/no-unknown-property": "warn",
+    "react/prefer-es6-class": "warn",
+    "react/prop-types": "warn",
+    "react/react-in-jsx-scope": "warn",
+    "react/self-closing-comp": "warn",
+    "react/sort-comp": "warn",
+    "async-await/space-after-async": "error",
+    "async-await/space-after-await": "error"
+  }
+}

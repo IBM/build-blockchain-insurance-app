@@ -1,0 +1,14 @@
+{
+  "Police": "Polizei",
+  "No outstanding theft claims.": "Keine unbearbeiteten Diebstahlsfälle.",
+  "Loading Theft Claims...": "Diebstahlsfälle werden geladen...",
+  "Theft Claim": "Diebstahlsfall",
+  "Name": "Name",
+  "Brand": "Marke",
+  "Model": "Modell",
+  "Serial No.": "Seriennr.",
+  "Description": "Beschreibung",
+  "File Reference": "Aktenzeichen",
+  "Confirm": "Bestätigen",
+  "Reject": "Ablehnen"
+}

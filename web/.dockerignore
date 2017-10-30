@@ -1,0 +1,16 @@
+node_modules
+.DS_Store
+.vscode
+.idea
+.env
+.env.sample
+npm-debug.log
+.jshintignore
+.jshintrc
+.npmrc
+bin
+dist
+insurance-peer
+shop-peer
+police-peer
+repairshop-peer

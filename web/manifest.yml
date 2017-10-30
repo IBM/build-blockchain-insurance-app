@@ -1,0 +1,11 @@
+---
+
+applications:
+- name: blockchain-demo
+  path: .
+  command: npm run serve
+  memory: 512M
+  buildpack: sdk-for-nodejs
+  hostname: blockchain-insurance
+  env:
+    NODE_ENV: production

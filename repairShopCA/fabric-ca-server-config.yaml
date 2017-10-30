@@ -1,0 +1,95 @@
+port: 7054
+debug: false
+tls:
+  enabled: true
+  certfile: /ca/tls/cert.pem
+  keyfile: /ca/tls/key.pem
+  clientauth:
+    type: noclientcert
+    certfiles:
+
+ca:
+  name: repairshop-org
+  keyfile: ./ca/key.pem
+  certfile: ./ca/cert.pem
+  chainfile: ./ca/cert.pem
+
+registry:
+  maxenrollments: -1
+  identities:
+  - name: admin
+    pass: adminpw
+    type: client
+    affiliation: ""
+    maxenrollments: -1
+    attrs:
+      hf.Registrar.Roles: "client,user,peer,validator,auditor"
+      hf.Registrar.DelegateRoles: "client,user,validator,auditor"
+      hf.Revoker: true
+      hf.IntermediateCA: true
+
+db:
+  type: sqlite3
+  datasource: fabric-ca-server.db
+  tls:
+    enabled: false
+
+ldap:
+  enabled: false
+
+signing:
+    default:
+      usage:
+      - cert sign
+      expiry: 8760h
+    profiles:
+      ca:
+         usage:
+         - cert sign
+         expiry: 43800h
+         caconstraint:
+           isca: true
+           maxpathlen: 0
+
+csr:
+  cn: fabric-ca-server
+  names:
+  - C: DE
+    ST: "Baden-Wuerttemberg"
+    L: "Ehningen"
+    O: "IBM"
+    OU: "Cloud"
+  hosts:
+  - repairshop-ca
+  - localhost
+  ca:
+    expiry: 131400h
+    pathlength: 10
+
+bccsp:
+    default: SW
+    sw:
+        hash: SHA2
+        security: 256
+        filekeystore:
+            keystore: msp/keystore
+
+cacount:
+
+cafiles:
+
+intermediate:
+  parentserver:
+    url:
+    caname:
+
+  enrollment:
+    hosts:
+    profile:
+    label:
+
+  tls:
+    certfiles:
+    client:
+      certfile:
+      keyfile:

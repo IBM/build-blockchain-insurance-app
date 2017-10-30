@@ -1,0 +1,78 @@
+@import 'normalize';
+.ibm-card {
+    img {
+        width: 100%;
+    }
+}
+
+[class^="ibm-"] [class$="-form"] {
+    input,
+    select,
+    textarea {
+        width: 100%;
+    }
+}
+
+.network-container {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    .network-circle {
+        width: 75%;
+        height: 75%;
+        border-radius: 50%;
+        border: 10px dashed #648fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .ibm-card {
+        position: absolute;
+        &::after {
+            background-repeat: no-repeat;
+            background-size: 90% 90%;
+            background-position: 350% 300%;
+            position: absolute;
+            content: '';
+            opacity: .2;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+        &.insurance-peer {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            &::after {
+                background-image: url('/img/icons/insurance company.svg');
+            }
+        }
+        &.shop-peer {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            &::after {
+                background-image: url('/img/icons/shop.svg');
+            }
+        }
+        &.police-peer {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            &::after {
+                background-image: url('/img/icons/police.svg');
+            }
+        }
+        &.repair-shop-peer {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            &::after {
+                background-image: url('/img/icons/repair service.svg');
+            }
+        }
+    }
+}

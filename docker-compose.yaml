@@ -1,0 +1,151 @@
+version: '2'
+
+services:
+  insurance-ca:
+    container_name: insurance-ca
+    extends:
+      file: ./ca-base.yaml
+      service: ca-base
+    image: insurance-ca
+    ports:
+    - 7054:7054
+
+  shop-ca:
+    container_name: shop-ca
+    extends:
+      file: ./ca-base.yaml
+      service: ca-base
+    image: shop-ca
+    ports:
+    - 8054:7054
+
+  repairshop-ca:
+    container_name: repairshop-ca
+    extends:
+      file: ./ca-base.yaml
+      service: ca-base
+    image: repairshop-ca
+    ports:
+    - 9054:7054
+
+  police-ca:
+    container_name: police-ca
+    extends:
+      file: ./ca-base.yaml
+      service: ca-base
+    image: police-ca
+    ports:
+    - 10054:7054
+
+  orderer0:
+    container_name: orderer0
+    image: orderer
+    environment:
+    - ORDERER_GENERAL_LOGLEVEL=debug
+    - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+    - ORDERER_GENERAL_GENESISMETHOD=file
+    - ORDERER_GENERAL_GENESISFILE=/orderer/crypto/genesis.block
+    - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+    - ORDERER_GENERAL_LOCALMSPDIR=/orderer/crypto/msp
+    - ORDERER_GENERAL_TLS_ENABLED=true
+    - ORDERER_GENERAL_TLS_PRIVATEKEY=/orderer/crypto/tls/server.key
+    - ORDERER_GENERAL_TLS_CERTIFICATE=/orderer/crypto/tls/server.crt
+    - ORDERER_GENERAL_TLS_ROOTCAS=[/orderer/crypto/tls/ca.crt]
+    working_dir: /orderer
+    command: orderer
+    ports:
+    - 7050:7050
+
+  insurance-peer:
+    container_name: insurance-peer
+    extends:
+      file: ./peer-base.yaml
+      service: peer-base
+    image: insurance-peer
+    environment:
+    - CORE_PEER_ID=insurance-peer
+    - CORE_PEER_ADDRESS=insurance-peer:7051
+    - CORE_PEER_GOSSIP_EXTERNALENDPOINT=insurance-peer:7051
+    - CORE_PEER_LOCALMSPID=InsuranceOrgMSP
+    ports:
+    - 7051:7051
+    - 7053:7053
+    depends_on:
+    - orderer0
+
+  shop-peer:
+    container_name: shop-peer
+    extends:
+      file: ./peer-base.yaml
+      service: peer-base
+    image: shop-peer
+    environment:
+    - CORE_PEER_ID=shop-peer
+    - CORE_PEER_ADDRESS=shop-peer:7051
+    - CORE_PEER_GOSSIP_EXTERNALENDPOINT=shop-peer:7051
+    - CORE_PEER_LOCALMSPID=ShopOrgMSP
+    ports:
+    - 8051:7051
+    - 8053:7053
+    depends_on:
+    - orderer0
+    - insurance-peer
+
+  repairshop-peer:
+    container_name: repairshop-peer
+    extends:
+      file: ./peer-base.yaml
+      service: peer-base
+    image: repairshop-peer
+    environment:
+    - CORE_PEER_ID=repairshop-peer
+    - CORE_PEER_ADDRESS=repairshop-peer:7051
+    - CORE_PEER_GOSSIP_EXTERNALENDPOINT=repairshop-peer:7051
+    - CORE_PEER_LOCALMSPID=RepairShopOrgMSP
+    ports:
+    - 9051:7051
+    - 9053:7053
+    depends_on:
+    - orderer0
+    - insurance-peer
+    - shop-peer
+
+  police-peer:
+    container_name: police-peer
+    extends:
+      file: ./peer-base.yaml
+      service: peer-base
+    image: police-peer
+    environment:
+    - CORE_PEER_ID=police-peer
+    - CORE_PEER_ADDRESS=police-peer:7051
+    - CORE_PEER_GOSSIP_EXTERNALENDPOINT=police-peer:7051
+    - CORE_PEER_LOCALMSPID=PoliceOrgMSP
+    ports:
+    - 10051:7051
+    - 10053:7053
+    depends_on:
+    - orderer0
+    - insurance-peer
+    - shop-peer
+    - repairshop-peer
+
+  web:
+    container_name: web
+    image: web
+    environment:
+    - PORT=3000
+    - DOCKER_SOCKET_PATH=/host/var/run/docker.sock
+    - DOCKER_CCENV_IMAGE=hyperledger/fabric-ccenv:x86_64-1.0.2
+    ports:
+    - 3000:3000
+    volumes:
+    - /var/run/:/host/var/run/
+    depends_on:
+    - orderer0
+    - insurance-ca
+    - insurance-peer
+    - shop-ca
+    - shop-peer
+    - repairshop-ca
+    - repairshop-peer

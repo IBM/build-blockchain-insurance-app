@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "env",
+    "react"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    },
+    "production": {}
+  },
+  "plugins": [
+    "react-intl"
+  ]
+}

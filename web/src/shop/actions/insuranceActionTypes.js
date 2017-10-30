@@ -1,0 +1,5 @@
+'use strict';
+
+export const LOAD_CONTRACT_TYPES_SUCCESS = 'LOAD_CONTRACT_TYPES_SUCCESS';
+
+export const SUBMIT_CONTRACT = 'SUBMIT_CONTRACT';

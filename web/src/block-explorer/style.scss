@@ -1,0 +1,115 @@
+@media screen and (min-device-width: 768px) {
+    $block-viewer-height: 180px;
+    #ibm-content-wrapper {
+        margin-bottom: $block-viewer-height;
+    }
+    .block-explorer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        .toggle-visibility-button {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            height: 24px;
+            transition: top .5s ease-in;
+            transition-delay: .2s;
+            z-index: 6005;
+            &.hidden {
+                top: -30px;
+            }
+            img {
+                height: 24px;
+                width: 24px;
+            }
+            .hint {
+                position: absolute;
+                display: inline-block;
+                padding-right: 10px;
+                right: 100%;
+                height: 24px;
+                line-height: 24px;
+                max-width: 300px;
+                text-align: right;
+                white-space: nowrap;
+                opacity: 1;
+                transition: opacity .5s ease-in, max-width .5s ease-in, visibility .5s ease-in;
+                overflow: hidden;
+                &.hidden {
+                    visibility: hidden;
+                    opacity: 0;
+                    max-width: 0;
+                }
+            }
+        }
+        .contents {
+            height: $block-viewer-height;
+            background-color: #C0E6FF; // IBM Blue 10
+            box-sizing: border-box;
+            opacity: 0.5;
+            padding: 0 20px;
+            z-index: 6000;
+            transition: opacity .5s ease-out, height .5s ease-out;
+            &:hover {
+                opacity: 1;
+            }
+            &.hidden {
+                height: 0;
+            }
+            .block {
+                display: inline-block;
+                width: 200px;
+                height: 90px;
+                margin: 0 10px;
+                padding: 10px;
+                background-color: #7CC7FF; // IBM Blue 20
+                .block-data {
+                    display: flex;
+                    flex-flow: column;
+                    height: 100%;
+                    p,
+                    div {
+                        padding: 0;
+                        margin: 0;
+                        line-height: 15px;
+                    }
+                    .transactions {
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        flex: auto;
+                        .transaction {
+                            display: flex;
+                            flex-flow: row;
+                            white-space: nowrap;
+                            .trans-date {
+                                flex: initial;
+                            }
+                            .trans-type {
+                                flex: auto;
+                                overflow: hidden;
+                                div.overflown:hover {
+                                    animation-name: marquee;
+                                    animation-duration: 3s;
+                                    animation-timing-function: linear;
+                                    animation-iteration-count: infinite;
+                                }
+                                @keyframes marquee {
+                                    0% {
+                                        transform: translateX(0);
+                                    }
+                                    50% {
+                                        transform: translateX(calc(100% - var(--scroll-width)));
+                                    }
+                                    100% {
+                                        transform: translateX(0);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
