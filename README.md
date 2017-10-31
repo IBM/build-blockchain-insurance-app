@@ -1,13 +1,18 @@
 # Build Blockchain Insurance Application
 
+This project showcases the use blockchain in insurance domain for claim processing. In this application, we have four participants, namely insurance, police, repair shop and shop peer. Insurance peer is the insurance company providing the insurance for the products and it is responsible for processing the claims. Police peer is responsible for verifying the theft claims. Repair shop peer is responsible for repairs of the product while shop peer sells the products to consumer.
+
 
 ## Included Components
 * Hyperledger Fabric
-* Hyperledger Composer
 * Docker
 
 ## Application Workflow Diagram
+![Workflow](images/workflow.png)
 
+* Generate Certificates for peers
+* Build Docker images for network
+* Start the insurance network
 
 ## Prerequisites
 
@@ -16,7 +21,6 @@
 * [Node.js & npm](https://nodejs.org/en/download/) - node v6.2.0 - v6.10.0 (v7+ not supported); npm comes with your node installation.
 * [Git client](https://git-scm.com/downloads) - needed for clone commands
 
-
 ## Steps
 
 1. [Download the docker images](#1-donwload-the-docker-images)
@@ -24,21 +28,13 @@
 
 ## 1. Download the docker images
 
-From your workspace, give cryptogen and configtxgen tools permission to execute:
-```bash
-chmod 755 cryptogen
-chmod 755 configtxgen
-```
-
-Next, we need to tell the `configtxgen tool` where to look for the `configtx.yaml` file that it needs to ingest. We will tell it look in our present working directory:
-
+From your workspace, export the path for Fabric
 ```bash
 export FABRIC_CFG_PATH=$PWD
 ```
 
 Run `build.sh` shell script to generate the certificates, download and create docker images for the network.
 ```bash
-chmod 755 build.sh
 ./build.sh
 ```
 
@@ -75,7 +71,8 @@ Creating web
 Creating police-peer ... done
 ```
 
-** Wait for few minutes for application to install and instantiate the chaincode on network**
+**Wait for few minutes for application to install and instantiate the chaincode on network**
+
 Check the status of installation using command:
 ```bash
 docker logs web
@@ -120,8 +117,7 @@ Imagine being a consumer (hereinafter called “Biker”) that wants to buy a ph
 
 ![Customer Shopping](images/Picture1.png)
 
-You can see the three products offered by the shop(s) now. In addition, you have insurance contracts available for them.
-In our scenario, you are an outdoor sport enthusiast who wants to buy a new Bike. Therefore, you’ll klick on the Bike Shop section.
+You can see the three products offered by the shop(s) now. In addition, you have insurance contracts available for them. In our scenario, you are an outdoor sport enthusiast who wants to buy a new Bike. Therefore, you’ll klick on the Bike Shop section.
 
 ![Shopping](images/Picture2.png)
 
@@ -207,7 +203,6 @@ The Biker can see in his “claim self-service” tab that the claim has been re
 The insurance company has the option to activate or deactivate certain contracts. This does not mean that contracts that have already been signed by customers will be no longer valid. It just does not allow new signings for these types of contracts. In addition, the insurance company has the possibility to create new contract templates that have different terms and conditions and a different pricing.  Any transaction will result in a block being written to the chain.
 
 ![Contract Management](images/Picture21.png)
-
 
 ## Additional resources
 Following is a list of additional blockchain resources:
