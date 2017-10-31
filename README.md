@@ -1,6 +1,6 @@
 # Build Blockchain Insurance Application
 
-This project showcases the use blockchain in insurance domain for claim processing. In this application, we have four participants, namely insurance, police, repair shop and shop peer. Insurance peer is the insurance company providing the insurance for the products and it is responsible for processing the claims. Police peer is responsible for verifying the theft claims. Repair shop peer is responsible for repairs of the product while shop peer sells the products to consumer.
+This project showcases the use of blockchain in insurance domain for claim processing. In this application, we have four participants, namely insurance, police, repair shop and shop peer. Insurance peer is the insurance company providing the insurance for the products and it is responsible for processing the claims. Police peer is responsible for verifying the theft claims. Repair shop peer is responsible for repairs of the product while shop peer sells the products to consumer.
 
 
 ## Included Components
@@ -212,9 +212,9 @@ Following is a list of additional blockchain resources:
 
 ## Troubleshooting
 
-* If you see any errors, then you need to remove the existing container. This command will remove all containers; NOT your images:
+* Run `clean.sh` to remove the docker images and containers for the insurance network.
 ```bash
-docker rm -f $(docker ps -aq)
+./clean.sh
 ```
 ## License
 [Apache 2.0](LICENSE)

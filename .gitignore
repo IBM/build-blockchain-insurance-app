@@ -17,3 +17,5 @@
 /policePeer/crypto/**
 /repairShopPeer/crypto/**
 /shopPeer/crypto/**
+**/tls
+**/*.pem
