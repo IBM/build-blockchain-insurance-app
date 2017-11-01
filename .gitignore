@@ -13,3 +13,4 @@
 /**/keystore
 /**/signcerts
 /**/tlscerts
+/**/*.pem
