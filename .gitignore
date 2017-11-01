@@ -8,3 +8,8 @@
 /**/crypto
 /web/certs/**
 /cli/peers/**
+/**/admincerts
+/**/cacerts
+/**/keystore
+/**/signcerts
+/**/tlscerts
