@@ -23,17 +23,28 @@ This project showcases the use of blockchain in insurance domain for claim proce
 
 ## Steps
 
-1. [Download the docker images](#1-donwload-the-docker-images)
+1. [Download the docker images](#1-download-the-docker-images)
 2. [Run the application](#2-run-the-application)
 
 ## 1. Download the docker images
 
+Clone the repository:
+```bash
+git clone https://github.com/IBM/build-blockchain-insurance-app.git
+```
+
 From your workspace, export the path for Fabric
 ```bash
+cd build-blockchain-insurance-app
 export FABRIC_CFG_PATH=$PWD
 ```
 
-Run `build.sh` shell script to generate the certificates, download and create docker images for the network.
+Login using your [docker hub](https://hub.docker.com/) credentials.
+```bash
+docker login
+```
+
+Run `build.sh` shell script to download and create docker images for the orderer, insurance-peer, police-peer, shop-peer, repairshop-peer, web application and certificate authorities for each peer.
 ```bash
 ./build.sh
 ```
@@ -117,7 +128,7 @@ Imagine being a consumer (hereinafter called “Biker”) that wants to buy a ph
 
 ![Customer Shopping](images/Picture1.png)
 
-You can see the three products offered by the shop(s) now. In addition, you have insurance contracts available for them. In our scenario, you are an outdoor sport enthusiast who wants to buy a new Bike. Therefore, you’ll klick on the Bike Shop section.
+You can see the three products offered by the shop(s) now. In addition, you have insurance contracts available for them. In our scenario, you are an outdoor sport enthusiast who wants to buy a new Bike. Therefore, you’ll click on the Bike Shop section.
 
 ![Shopping](images/Picture2.png)
 
@@ -129,7 +140,9 @@ You have the choice between different insurance contracts that feature different
 
 ![Bike Insurance](images/Picture4.png)
 
-The application will show you the total sum of your purchase. By clicking on “order” you agree to the terms and conditions and close the deal (signing of the contract). In addition, you’ll receive a unique username and password. The login credentials will be used once you file a claim.  A block is being written to the Blockchain. You can see the block by clicking on the black arrow on the bottom-right.
+The application will show you the total sum of your purchase. By clicking on “order” you agree to the terms and conditions and close the deal (signing of the contract). In addition, you’ll receive a unique username and password. The login credentials will be used once you file a claim.  A block is being written to the Blockchain.
+
+>note You can see the block by clicking on the black arrow on the bottom-right.
 
 ![Bike Insurance](images/Picture5.png)
 

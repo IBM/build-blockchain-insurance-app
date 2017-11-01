@@ -19,3 +19,8 @@
 /shopPeer/crypto/**
 **/tls
 **/*.pem
+/orderer/crypto
+/insurancePeer/crypto
+/policePeer/crypto
+/repairShopPeer/crypto
+/shopPeer/crypto/
