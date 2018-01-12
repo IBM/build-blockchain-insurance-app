@@ -21,7 +21,17 @@ This project showcases the use of blockchain in insurance domain for claim proce
 * [Node.js & npm](https://nodejs.org/en/download/) - node v6.2.0 - v6.10.0 (v7+ not supported); npm comes with your node installation.
 * [Git client](https://git-scm.com/downloads) - needed for clone commands
 
-## Steps
+## Quick Start Steps for Mac and Ubuntu
+for mac user:
+1. git clone https://github.com/IBM/build-blockchain-insurance-app.git
+2. cd build-blockchain-insurance-app.git
+3. ./build_mac.sh
+for Ubuntu user:
+1. git clone https://github.com/IBM/build-blockchain-insurance-app.git
+2. cd build-blockchain-insurance-app.git
+3. ./build_ubuntu.sh
+
+## Regular install Steps
 
 1. [Download the docker images](#1-download-the-docker-images)
 2. [Run the application](#2-run-the-application)
