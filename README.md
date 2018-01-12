@@ -27,7 +27,7 @@ for mac user:
 2. cd build-blockchain-insurance-app.git
 3. ./build_mac.sh
 4. Use the link http://localhost:3000 to load the web application in browser.
-for Ubuntu user:
+<br>for Ubuntu user:<br>
 1. git clone https://github.com/IBM/build-blockchain-insurance-app.git
 2. cd build-blockchain-insurance-app.git
 3. ./build_ubuntu.sh
