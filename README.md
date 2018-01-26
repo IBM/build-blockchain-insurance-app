@@ -8,7 +8,7 @@ This project showcases the use of blockchain in insurance domain for claim proce
 * Docker
 
 ## Application Workflow Diagram
-![Workflow](images/workflow.png)
+![Workflow](images/arch-blockchain-insurance2.png)
 
 * Generate Certificates for peers
 * Build Docker images for network
