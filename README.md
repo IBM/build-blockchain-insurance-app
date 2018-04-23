@@ -4,6 +4,7 @@
 
 This project showcases the use of blockchain in insurance domain for claim processing. In this application, we have four participants, namely insurance, police, repair shop and shop peer. Insurance peer is the insurance company providing the insurance for the products and it is responsible for processing the claims. Police peer is responsible for verifying the theft claims. Repair shop peer is responsible for repairs of the product while shop peer sells the products to consumer.
 
+Audience level : Intermediate Developers
 
 ## Included Components
 * Hyperledger Fabric
@@ -215,7 +216,7 @@ The insurance company has the option to activate or deactivate certain contracts
 ## Additional resources
 Following is a list of additional blockchain resources:
 * [Fundamentals of IBM Blockchain](https://www.ibm.com/blockchain/what-is-blockchain.html)
-* [Hyperledger Fabric Documentation](http://fabric-rtd.readthedocs.io/en/latest/getting_started.html)
+* [Hyperledger Fabric Documentation](https://hyperledger-fabric.readthedocs.io/)
 * [Hyperledger Fabric code on GitHub](https://github.com/hyperledger/fabric)
 
 ## Troubleshooting
