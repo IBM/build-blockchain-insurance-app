@@ -21,6 +21,7 @@
     "clean": "rimraf -rf ./dist ./bin"
   },
   "dependencies": {
+    "grpc" : "1.9.1",
     "babel-polyfill": "6.26.0",
     "bluebird": "3.5.0",
     "body-parser": "1.18.1",
