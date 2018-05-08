@@ -4,6 +4,7 @@
 
 本项目展示在保险领域使用区块链来进行索赔处理。在本应用程序中，我们有 4 个参与者，分别是 Insurance、Police、Repair Shop 和 Shop 对等节点。Insurance 对等节点是为产品提供保险并负责处理索赔的保险公司。Police 对等节点负责核查被盗索赔。Repair Shop 对等节点负责修理产品，而 Shop 对等节点负责向用户销售产品。
 
+目标受众级别：中级开发人员
 
 ## 包含的组件
 * Hyperledger Fabric
@@ -23,36 +24,15 @@
 * [Node.js 和 npm](https://nodejs.org/en/download/) - node v6.2.0 - v6.10.0（不支持 v7+）；您的 node 安装中包含 npm。
 * [Git 客户端](https://git-scm.com/downloads) - 执行克隆命令时需要它
 
-## 针对 Mac 和 Ubuntu 的快速入门步骤
-对于 Mac 用户：
-1. git clone https://github.com/IBM/build-blockchain-insurance-app.git
-2. cd build-blockchain-insurance-app.git
-3. ./build_mac.sh
-4. 使用链接 http://localhost:3000 将该 Web 应用程序加载到浏览器中。<br>
+## 步骤
 
-对于 Ubuntu 用户：<br>
+1. [运行应用程序](#1-run-the-application)
 
-1. git clone https://github.com/IBM/build-blockchain-insurance-app.git
-2. cd build-blockchain-insurance-app.git
-3. ./build_ubuntu.sh
-4. 使用链接 http://youe_ip:3000 将该 Web 应用程序加载到浏览器中。
-
-## 常规安装步骤
-
-1. [下载 Docker 镜像](#1-download-the-docker-images)
-2. [运行应用程序](#2-run-the-application)
-
-## 1.下载 Docker 镜像
+## 1. 运行应用程序
 
 克隆该存储库：
 ```bash
 git clone https://github.com/IBM/build-blockchain-insurance-app.git
-```
-
-从您的工作区导出 Fabric 的路径
-```bash
-cd build-blockchain-insurance-app
-export FABRIC_CFG_PATH=$PWD
 ```
 
 使用您的 [docker hub](https://hub.docker.com/) 凭证进行登录。
@@ -60,18 +40,18 @@ export FABRIC_CFG_PATH=$PWD
 Docker login
 ```
 
-运行 `build.sh` shell 脚本来下载并创建订购者、Insurance 对等节点、Police 对等节点、Shop 对等节点、Repair Shop 对等节点、Web 应用程序和每个对等节点的认证中心的 Docker 镜像。
+运行构建脚本来下载并创建订购者、Insurance 对等节点、Police 对等节点、Shop 对等节点、Repair Shop 对等节点、Web 应用程序和每个对等节点的证书颁发机构的 Docker 镜像。
+
+对于 Mac 用户：
 ```bash
-./build.sh
+cd build-blockchain-insurance-app
+./build_mac.sh
 ```
 
-## 2.运行应用程序
-
-`docker-compose.yaml` 包含为保险应用程序设置网络的配置。
-
-运行保险应用程序。
+对于 Ubuntu 用户：
 ```bash
-docker-compose up -d
+cd build-blockchain-insurance-app
+./build_ubuntu.sh
 ```
 
 您会在控制台上看到以下输出：
@@ -102,7 +82,7 @@ Creating police-peer ... done
 
 使用以下命令检查安装状态：
 ```bash
-Docker logs web
+docker logs web
 ```
 完成上述操作时，您会在控制台上看到以下输出：
 ```
@@ -236,7 +216,7 @@ Police 对等节点可以查看包含盗窃的索赔。如果报告自行车被�
 ## 附加资源
 以下是一个附加区块链资源列表：
 * [IBM 区块链基础](https://www.ibm.com/blockchain/what-is-blockchain.html)
-* [Hyperledger Fabric 文档](http://fabric-rtd.readthedocs.io/en/latest/getting_started.html)
+* [Hyperledger Fabric 文档](https://hyperledger-fabric.readthedocs.io/)
 * [GitHub 上的 Hyperledger Fabric 代码](https://github.com/hyperledger/fabric)
 
 ## 故障排除
