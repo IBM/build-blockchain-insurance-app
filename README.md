@@ -18,11 +18,15 @@ Audience level : Intermediate Developers
 * Start the insurance network
 
 ## Prerequisites
+We find that Blockchain can be finicky when it comes to installing Node. We want to share this [StackOverflow response](https://stackoverflow.com/questions/49744276/error-cannot-find-module-api-hyperledger-composer) - because many times the errors you see with Composer are derived in having installed either the wrong Node version or took an approach that is not supported by Composer: 
 
 * [Docker](https://www.docker.com/products/overview) - v1.13 or higher
 * [Docker Compose](https://docs.docker.com/compose/overview/) - v1.8 or higher
-* [Node.js & npm](https://nodejs.org/en/download/) - node v6.2.0 - v6.10.0 (v7+ not supported); npm comes with your node installation.
-* [Git client](https://git-scm.com/downloads) - needed for clone commands
+* [NPM](https://www.npmjs.com/get-npm) - v5.6.0 or higher
+* [nvm]() - v8.11.3 (use to download and set what node version you are using)
+* [Node.js](https://nodejs.org/en/download/) - node v8.11.3 ** don't install in SUDO mode
+* [Git client](https://git-scm.com/downloads) - v 2.9.x or higher
+* [Python](https://www.python.org/downloads/) - 2.7.x
 
 ## Steps
 
@@ -40,7 +44,7 @@ Login using your [docker hub](https://hub.docker.com/) credentials.
 docker login
 ```
 
-Run the build script to download and create docker images for the orderer, insurance-peer, police-peer, shop-peer, repairshop-peer, web application and certificate authorities for each peer.
+Run the build script to download and create docker images for the orderer, insurance-peer, police-peer, shop-peer, repairshop-peer, web application and certificate authorities for each peer. This will run for a few minutes.
 
 For Mac user:
 ```bash
@@ -167,7 +171,7 @@ The Biker can briefly describe the damage on his bike and/or select whether it h
 Once the Biker has submitted the claim it will be shown in the box marked in red. Furthermore, another block is being written to the chain.
 ![Claim Block](images/Picture10.png)
 
-The Biker can also view the active claims.
+The Biker can also view the active claims. **Note:** You may need to re-log into Claims Processing to see the new active claim.
 
 ![Active Claims](images/Picture11.png)
 
