@@ -90,21 +90,11 @@ docker logs web
 ```
 On completion, you should see the following output on console:
 ```
-npm info it worked if it ends with ok
-npm info using npm@3.10.10
-npm info using node@v6.11.3
-npm info lifecycle blockchain-for-insurance@2.1.0~preserve: blockchain-for-insurance@2.1.0
-npm info lifecycle blockchain-for-insurance@2.1.0~serve: blockchain-for-insurance@2.1.0
-
 > blockchain-for-insurance@2.1.0 serve /app
-> cross-env NODE_ENV=production node ./bin/server
+> cross-env NODE_ENV=production&&node ./bin/server
 
 /app/app/static/js
 Server running on port: 3000
-info: [EventHub.js]: _connect - options {"grpc.ssl_target_name_override":"insurance-peer","grpc.default_authority":"insurance-peer"}
-info: [EventHub.js]: _connect - options {"grpc.ssl_target_name_override":"shop-peer","grpc.default_authority":"shop-peer"}
-info: [EventHub.js]: _connect - options {"grpc.ssl_target_name_override":"repairshop-peer","grpc.default_authority":"repairshop-peer"}
-info: [EventHub.js]: _connect - options {"grpc.ssl_target_name_override":"police-peer","grpc.default_authority":"police-peer"}
 Default channel not found, attempting creation...
 Successfully created a new default channel.
 Joining peers to the default channel.
