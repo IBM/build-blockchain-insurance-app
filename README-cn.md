@@ -1,5 +1,4 @@
-*阅读本文的其他语言版本：[English](README.md)。*
-*阅读本文的其他语言版本：[Japanese](README-jp.md).*
+*阅读本文的其他语言版本：[English](README.md),[Japanese](README-ja.md).*
 
 
 # 构建区块链保险应用程序

@@ -1,5 +1,4 @@
-*Read this in other languages: [中国語](README-cn.md).*
-*Read this in other languages: [日本語](README-jp.md).*
+*Read this in other languages: [中国語](README-cn.md),[日本語](README-ja.md).*
 
 # Build Blockchain Insurance Application
 
