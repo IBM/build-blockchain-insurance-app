@@ -516,6 +516,11 @@ func getUser(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 		Username string `json:"username"`
 	}{}
 
+	err := json.Unmarshal([]byte(args[0]), &input)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+
 	userKey, err := stub.CreateCompositeKey(prefixUser, []string{input.Username})
 	if err != nil {
 		return shim.Error(err.Error())
