@@ -221,3 +221,12 @@ http://localhost:3000 のリンクでブラウザでWebアプリケーション�
 ```
 ## License
 [Apache 2.0](LICENSE)
+
+https://github.com/Privatix/privatix.git
+https://github.com/Privatix/dappctrl.git
+https://github.com/Privatix/dapp-installer.git
+https://github.com/Privatix/dapp-gui.git
+https://github.com/Privatix/dapp-openvpn.git
+https://github.com/Privatix/dapp-somc.git
+https://github.com/Privatix/dapp-smart-contract.git
+https://github.com/Privatix/meetupcode.git
