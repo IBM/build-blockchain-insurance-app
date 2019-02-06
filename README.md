@@ -18,9 +18,9 @@ Audience level : Intermediate Developers
 * Start the insurance network
 
 ## Prerequisites
-We find that Blockchain can be finicky when it comes to installing Node. We want to share this [StackOverflow response](https://stackoverflow.com/questions/49744276/error-cannot-find-module-api-hyperledger-composer) - because many times the errors you see with Composer are derived in having installed either the wrong Node version or took an approach that is not supported by Composer: 
+We find that Blockchain can be finicky when it comes to installing Node. We want to share this [StackOverflow response](https://stackoverflow.com/questions/49744276/error-cannot-find-module-api-hyperledger-composer) - because many times the errors you see with Composer are derived in having installed either the wrong Node version or took an approach that is not supported by Composer:
 
-* [Docker](https://www.docker.com/products/overview) - v1.13 or higher
+* [Docker](https://www.docker.com/products) - v1.13 or higher
 * [Docker Compose](https://docs.docker.com/compose/overview/) - v1.8 or higher
 * [NPM](https://www.npmjs.com/get-npm) - v5.6.0 or higher
 * [nvm]() - v8.11.3 (use to download and set what node version you are using)
@@ -36,7 +36,7 @@ We find that Blockchain can be finicky when it comes to installing Node. We want
 
 Clone the repository:
 ```bash
-git clone https://github.com/IBM/build-blockchain-insurance-app.git
+git clone https://github.com/IBM/build-blockchain-insurance-app
 ```
 
 Login using your [docker hub](https://hub.docker.com/) credentials.
@@ -209,7 +209,7 @@ The insurance company has the option to activate or deactivate certain contracts
 
 ## Additional resources
 Following is a list of additional blockchain resources:
-* [Fundamentals of IBM Blockchain](https://www.ibm.com/blockchain/what-is-blockchain.html)
+* [Fundamentals of IBM Blockchain](https://www.ibm.com/blockchain/what-is-blockchain)
 * [Hyperledger Fabric Documentation](https://hyperledger-fabric.readthedocs.io/)
 * [Hyperledger Fabric code on GitHub](https://github.com/hyperledger/fabric)
 
@@ -220,6 +220,6 @@ Following is a list of additional blockchain resources:
 ./clean.sh
 ```
 ## License
-This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
+This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-[Apache Software License (ASL) FAQ](http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
+[Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
