@@ -20,13 +20,13 @@ Audience level : Intermediate Developers
 ## Prerequisites
 We find that Blockchain can be finicky when it comes to installing Node. We want to share this [StackOverflow response](https://stackoverflow.com/questions/49744276/error-cannot-find-module-api-hyperledger-composer) - because many times the errors you see with Compose are derived in having installed either the wrong Node version or took an approach that is not supported by Compose:
 
-* [Docker](https://www.docker.com/products) - v1.13 or higher
-* [Docker Compose](https://docs.docker.com/compose/overview/) - v1.8 or higher
-* [NPM](https://www.npmjs.com/get-npm) - v5.6.0 or higher
-* [nvm]() - v8.11.3 (use to download and set what node version you are using)
-* [Node.js](https://nodejs.org/en/download/) - node v8.11.3 ** don't install in SUDO mode
-* [Git client](https://git-scm.com/downloads) - v 2.9.x or higher
-* [Python](https://www.python.org/downloads/) - 2.7.x
+* [Docker](https://www.docker.com/products) - latest
+* [Docker Compose](https://docs.docker.com/compose/overview/) - latest
+* [NPM](https://www.npmjs.com/get-npm) - latest
+* [nvm]() - latest
+* [Node.js](https://nodejs.org/en/download/) - latest
+* [Git client](https://git-scm.com/downloads) - latest
+* **[Python](https://www.python.org/downloads/) - 2.7.x**
 
 ## Steps
 

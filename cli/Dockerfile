@@ -1,4 +1,4 @@
-FROM docker.io/hyperledger/fabric-peer:x86_64-1.1.0
+FROM docker.io/hyperledger/fabric-peer:latest
 
 RUN mkdir /scripts
 COPY ./script.sh /scripts

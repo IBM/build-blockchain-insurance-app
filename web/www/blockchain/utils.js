@@ -13,7 +13,7 @@ import hfc from 'fabric-client';
 import utils from 'fabric-client/lib/utils';
 import Orderer from 'fabric-client/lib/Orderer';
 import Peer from 'fabric-client/lib/Peer';
-import EventHub from 'fabric-client/lib/EventHub';
+import ChannelEventHub from 'fabric-client/lib/ChannelEventHub';
 import User from 'fabric-client/lib/User';
 import CAClient from 'fabric-ca-client';
 import {
@@ -74,16 +74,17 @@ export class OrganizationClient extends EventEmitter {
   initEventHubs() {
     // Setup event hubs
     try {
-      const defaultEventHub = this._client.newEventHub();
-      defaultEventHub.setPeerAddr(this._peerConfig.eventHubUrl, {
-        pem: this._peerConfig.pem,
-        'ssl-target-name-override': this._peerConfig.hostname
-      });
+      const defaultEventHub = this._channelName.newChannelEventHub(this._peerConfig);
       defaultEventHub.connect();
       defaultEventHub.registerBlockEvent(
-        block => {
-          this.emit('block', unmarshalBlock(block));
-        });
+        'all', // this listener will be notificed of all transactions
+          (block) => {
+             this.emit('block', unmarshalBlock(block));
+          },
+          (err) => {
+             console.log(err);
+          }
+      );
       this._eventHubs.push(defaultEventHub);
     } catch (e) {
       console.log(`Failed to configure event hubs. Error ${e.message}`);
