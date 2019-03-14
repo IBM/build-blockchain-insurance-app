@@ -106,7 +106,7 @@ func completeRepairOrder(stub shim.ChaincodeStubInterface, args []string) pb.Res
 	}
 	claimBytes, _ := stub.GetState(claimKey)
 	if claimBytes != nil {
-		claim := claim{}
+		claim := Claim{}
 		err := json.Unmarshal(claimBytes, &claim)
 		if err != nil {
 			return shim.Error(err.Error())

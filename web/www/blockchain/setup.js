@@ -85,11 +85,6 @@ function getAdminOrgs() {
     console.log(e);
     process.exit(-1);
   }
-  // Setup event hubs
-  insuranceClient.initEventHubs();
-  shopClient.initEventHubs();
-  repairShopClient.initEventHubs();
-  policeClient.initEventHubs();
 
   // Bootstrap blockchain network
   try {
@@ -117,6 +112,19 @@ function getAdminOrgs() {
     console.log('Fatal error bootstrapping the blockchain network!');
     console.log(e);
     process.exit(-1);
+  }
+
+  // Register block events
+  try {
+    console.log('Connecting and Registering Block Events');
+    insuranceClient.connectAndRegisterBlockEvent();
+    shopClient.connectAndRegisterBlockEvent();
+    repairShopClient.connectAndRegisterBlockEvent();
+    policeClient.connectAndRegisterBlockEvent();
+  } catch (e) {
+  console.log('Fatal error register block event!');
+  console.log(e);
+  process.exit(-1);
   }
 
   // Initialize network
