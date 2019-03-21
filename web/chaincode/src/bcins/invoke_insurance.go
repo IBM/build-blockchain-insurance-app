@@ -38,7 +38,7 @@ func listContractTypes(stub shim.ChaincodeStubInterface, args []string) pb.Respo
 
 		ct := struct {
 			UUID string `json:"uuid"`
-			*contractType
+			*ContractType
 		}{}
 		err = json.Unmarshal(kvResult.Value, &ct)
 		if err != nil {
@@ -73,7 +73,7 @@ func createContractType(stub shim.ChaincodeStubInterface, args []string) pb.Resp
 	partial := struct {
 		UUID string `json:"uuid"`
 	}{}
-	ct := contractType{}
+	ct := ContractType{}
 
 	err := json.Unmarshal([]byte(args[0]), &partial)
 	if err != nil {
@@ -112,7 +112,7 @@ func setActiveContractType(stub shim.ChaincodeStubInterface, args []string) pb.R
 		UUID   string `json:"uuid"`
 		Active bool   `json:"active"`
 	}{}
-	ct := contractType{}
+	ct := ContractType{}
 
 	err := json.Unmarshal([]byte(args[0]), &req)
 	if err != nil {
@@ -187,8 +187,8 @@ func listContracts(stub shim.ChaincodeStubInterface, args []string) pb.Response 
 		// Construct response struct
 		result := struct {
 			UUID string `json:"uuid"`
-			*contract
-			Claims []claim `json:"claims,omitempty"`
+			*Contract
+			Claims []Claim `json:"claims,omitempty"`
 		}{}
 
 		err = json.Unmarshal(kvResult.Value, &result)
@@ -206,7 +206,7 @@ func listContracts(stub shim.ChaincodeStubInterface, args []string) pb.Response 
 
 		// Fetch the claims, if the the username parameter is specified
 		if len(input.Username) > 0 {
-			result.Claims, err = result.contract.Claims(stub)
+			result.Claims, err = result.Contract.Claims(stub)
 			if err != nil {
 				return shim.Error(err.Error())
 			}
@@ -250,7 +250,7 @@ func listClaims(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 
 		result := struct {
 			UUID string `json:"uuid"`
-			*claim
+			*Claim
 		}{}
 		err = json.Unmarshal(kvResult.Value, &result)
 		if err != nil {
@@ -298,7 +298,7 @@ func fileClaim(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 		return shim.Error(err.Error())
 	}
 
-	claim := claim{
+	claim := Claim{
 		ContractUUID: dto.ContractUUID,
 		Date:         dto.Date,
 		Description:  dto.Description,
@@ -377,7 +377,7 @@ func processClaim(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 		return shim.Error("Claim cannot be found.")
 	}
 
-	claim := claim{}
+	claim := Claim{}
 	err = json.Unmarshal(claimBytes, &claim)
 	if err != nil {
 		return shim.Error(err.Error())

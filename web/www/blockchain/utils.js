@@ -54,6 +54,8 @@ export class OrganizationClient extends EventEmitter {
     });
     this._peers.push(defaultPeer);
     this._channel.addPeer(defaultPeer);
+    const defaultEventHub = this._channel.newChannelEventHub(this.defaultPeer);
+    this._eventHubs.push(defaultEventHub);
     this._adminUser = null;
   }
 
@@ -71,13 +73,11 @@ export class OrganizationClient extends EventEmitter {
     }
   }
 
-  initEventHubs() {
-    // Setup event hubs
+  connectAndRegisterBlockEvent() {
+    // Setup event hubs 
     try {
-      const defaultEventHub = this._channelName.newChannelEventHub(this._peerConfig);
-      defaultEventHub.connect();
-      defaultEventHub.registerBlockEvent(
-        'all', // this listener will be notificed of all transactions
+      this._eventHubs[0].connect({full_block: true});
+      this._eventHubs[0].registerBlockEvent(
           (block) => {
              this.emit('block', unmarshalBlock(block));
           },
@@ -85,9 +85,8 @@ export class OrganizationClient extends EventEmitter {
              console.log(err);
           }
       );
-      this._eventHubs.push(defaultEventHub);
     } catch (e) {
-      console.log(`Failed to configure event hubs. Error ${e.message}`);
+      console.log(`Failed to connect and register block event. Error ${e.message}`);
       throw e;
     }
   }
@@ -142,36 +141,31 @@ export class OrganizationClient extends EventEmitter {
         txId: this._client.newTransactionID(),
         block: genesisBlock
       };
-      const joinedChannelPromises = this._eventHubs.map(eh => {
-        eh.connect();
+      await this._channel.joinChannel(request, JOIN_TIMEOUT);
+      // Check if Joined
+      this._eventHubs.map(eh => {
+        eh.connect({full_block: true});
         return new Promise((resolve, reject) => {
-          let blockRegistration;
-          const cb = block => {
-            clearTimeout(responseTimeout);
-            eh.unregisterBlockEvent(blockRegistration);
-            if (block.data.data.length === 1) {
-              const channelHeader =
-                block.data.data[0].payload.header.channel_header;
-              if (channelHeader.channel_id === this._channelName) {
-                resolve();
-              } else {
-                reject(new Error('Peer did not join an expected channel.'));
+          let blockRegistration = eh.registerBlockEvent(
+              (block) => {
+                eh.unregisterBlockEvent(blockRegistration);
+                if (block.data.data.length === 1 && block.data.data[0].payload.header.channel_header.channel_id === this._channelName) {
+                  console.log('Peer joined default channel');
+                  resolve();
+                } else {
+                  reject(new Error('Peer did not join an expected channel.'));
+                }
+              },
+              (err) => {
+                console.log(err);
               }
-            }
-          };
-
-          blockRegistration = eh.registerBlockEvent(cb);
+          );
           const responseTimeout = setTimeout(() => {
             eh.unregisterBlockEvent(blockRegistration);
             reject(new Error('Peer did not respond in a timely fashion!'));
           }, JOIN_TIMEOUT);
         });
       });
-
-      const completedPromise = joinedChannelPromises.concat([
-        this._channel.joinChannel(request)
-      ]);
-      await Promise.all(completedPromise);
     } catch (e) {
       console.log(`Error joining peer to channel. Error: ${e.message}`);
       throw e;

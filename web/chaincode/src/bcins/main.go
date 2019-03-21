@@ -49,7 +49,7 @@ func (t *SmartContract) Init(stub shim.ChaincodeStubInterface) pb.Response {
 	if len(args) == 1 {
 		var contractTypes []struct {
 			UUID string `json:"uuid"`
-			*contractType
+			*ContractType
 		}
 		err := json.Unmarshal([]byte(args[0]), &contractTypes)
 		if err != nil {
@@ -60,7 +60,7 @@ func (t *SmartContract) Init(stub shim.ChaincodeStubInterface) pb.Response {
 			if err != nil {
 				return shim.Error(err.Error())
 			}
-			contractTypeAsBytes, err := json.Marshal(ct.contractType)
+			contractTypeAsBytes, err := json.Marshal(ct.ContractType)
 			if err != nil {
 				return shim.Error(err.Error())
 			}

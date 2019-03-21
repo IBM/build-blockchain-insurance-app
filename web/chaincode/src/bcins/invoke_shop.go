@@ -73,7 +73,7 @@ func createContract(stub shim.ChaincodeStubInterface, args []string) pb.Response
 		}
 	}
 
-	contract := contract{
+	contract := Contract{
 		Username:         dto.Username,
 		ContractTypeUUID: dto.ContractTypeUUID,
 		Item:             dto.Item,

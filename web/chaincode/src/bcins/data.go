@@ -10,7 +10,7 @@ import (
 )
 
 // Key consists of prefix + UUID of the contract type
-type contractType struct {
+type ContractType struct {
 	ShopType        string  `json:"shop_type"`
 	FormulaPerDay   string  `json:"formula_per_day"`
 	MaxSumInsured   float32 `json:"max_sum_insured"`
@@ -23,7 +23,7 @@ type contractType struct {
 }
 
 // Key consists of prefix + username + UUID of the contract
-type contract struct {
+type Contract struct {
 	Username         string    `json:"username"`
 	Item             item      `json:"item"`
 	StartDate        time.Time `json:"start_date"`
@@ -44,7 +44,7 @@ type item struct {
 }
 
 // Key consists of prefix + UUID of the contract + UUID of the claim
-type claim struct {
+type Claim struct {
 	ContractUUID  string      `json:"contract_uuid"`
 	Date          time.Time   `json:"date"`
 	Description   string      `json:"description"`
@@ -137,13 +137,13 @@ type repairOrder struct {
 	Ready        bool   `json:"ready"`
 }
 
-func (u *user) Contacts(stub shim.ChaincodeStubInterface) []contract {
-	contracts := make([]contract, 0)
+func (u *user) Contacts(stub shim.ChaincodeStubInterface) []Contract {
+	contracts := make([]Contract, 0)
 
 	// for each contractID in user.ContractIndex
 	for _, contractID := range u.ContractIndex {
 
-		c := &contract{}
+		c := &Contract{}
 
 		// get contract
 		contractAsBytes, err := stub.GetState(contractID)
@@ -166,11 +166,11 @@ func (u *user) Contacts(stub shim.ChaincodeStubInterface) []contract {
 	return contracts
 }
 
-func (c *contract) Claims(stub shim.ChaincodeStubInterface) ([]claim, error) {
-	claims := []claim{}
+func (c *Contract) Claims(stub shim.ChaincodeStubInterface) ([]Claim, error) {
+	claims := []Claim{}
 
 	for _, claimKey := range c.ClaimIndex {
-		claim := claim{}
+		claim := Claim{}
 
 		claimAsBytes, err := stub.GetState(claimKey)
 		if err != nil {
@@ -188,7 +188,7 @@ func (c *contract) Claims(stub shim.ChaincodeStubInterface) ([]claim, error) {
 	return claims, nil
 }
 
-func (c *contract) User(stub shim.ChaincodeStubInterface) (*user, error) {
+func (c *Contract) User(stub shim.ChaincodeStubInterface) (*user, error) {
 	user := &user{}
 
 	if len(c.Username) == 0 {
@@ -212,7 +212,7 @@ func (c *contract) User(stub shim.ChaincodeStubInterface) (*user, error) {
 	return user, nil
 }
 
-func (c *claim) Contract(stub shim.ChaincodeStubInterface) (*contract, error) {
+func (c *Claim) Contract(stub shim.ChaincodeStubInterface) (*Contract, error) {
 	if len(c.ContractUUID) == 0 {
 		return nil, nil
 	}
@@ -235,7 +235,7 @@ func (c *claim) Contract(stub shim.ChaincodeStubInterface) (*contract, error) {
 		}
 
 		if keyParams[1] == c.ContractUUID {
-			contract := &contract{}
+			contract := &Contract{}
 			err := json.Unmarshal(kvResult.Value, contract)
 			if err != nil {
 				return nil, err

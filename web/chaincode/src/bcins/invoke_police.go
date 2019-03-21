@@ -21,7 +21,7 @@ func listTheftClaims(stub shim.ChaincodeStubInterface, args []string) pb.Respons
 			return shim.Error(err.Error())
 		}
 
-		claim := claim{}
+		claim := Claim{}
 		err = json.Unmarshal(kvResult.Value, &claim)
 		if err != nil {
 			return shim.Error(err.Error())
@@ -103,7 +103,7 @@ func processTheftClaim(stub shim.ChaincodeStubInterface, args []string) pb.Respo
 		return shim.Error("Claim cannot be found.")
 	}
 
-	claim := claim{}
+	claim := Claim{}
 	err = json.Unmarshal(claimAsBytes, &claim)
 	if err != nil {
 		return shim.Error(err.Error())
