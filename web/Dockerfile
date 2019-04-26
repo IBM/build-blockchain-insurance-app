@@ -1,4 +1,4 @@
-FROM docker.io/library/node:8.11.3
+FROM node:8.11-stretch
 
 ENV NODE_ENV production
 ENV PORT 3000
