@@ -5,6 +5,7 @@ import { wrapError } from './utils';
 import { insuranceClient as client, isReady } from './setup';
 import uuidV4 from 'uuid/v4';
 
+
 export async function getContractTypes() {
   if (!isReady()) {
     return;
@@ -159,13 +160,23 @@ export const once = client.once.bind(client);
 export const addListener = client.addListener.bind(client);
 export const prependListener = client.prependListener.bind(client);
 export const removeListener = client.removeListener.bind(client);
+const peerType = 'insuranceApp-admin'
 
-function invoke(fcn, ...args) {
+
+async function invoke(fcn, ...args) {
+
+  await network.invokeCC(fcn, ...args);
+  console.log('after calling await network.invokeCC(fcn, ...args)')
+  
   return client.invoke(
     config.chaincodeId, config.chaincodeVersion, fcn, ...args);
 }
 
-function query(fcn, ...args) {
+async function query(fcn, ...args) {
+
+  await network.invokeCC(fcn, ...args);
+  console.log('after calling await network.queryCC(fcn, ...args)')
+
   return client.query(
     config.chaincodeId, config.chaincodeVersion, fcn, ...args);
 }

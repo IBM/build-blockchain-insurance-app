@@ -5,6 +5,8 @@ import { wrapError } from './utils';
 import { shopClient as client, isReady } from './setup';
 import uuidV4 from 'uuid/v4';
 
+import network from './invoke';
+
 export async function getContractTypes(shopType) {
   if (!isReady()) {
     return;
@@ -23,7 +25,9 @@ export async function createContract(contract) {
     return;
   }
   try {
+    console.log(`contract: ${contract}`)
     let c = Object.assign({}, contract, { uuid: uuidV4() });
+    console.log(`c: ${c}`)
     const loginInfo = await invoke('contract_create', c);
     if (!loginInfo
       ^ !!(loginInfo && loginInfo.username && loginInfo.password)) {
@@ -91,12 +95,25 @@ export const addListener = client.addListener.bind(client);
 export const prependListener = client.prependListener.bind(client);
 export const removeListener = client.removeListener.bind(client);
 
-function invoke(fcn, ...args) {
+const peerType = 'shopApp-admin'
+
+async function invoke(fcn, ...args) {
+  //using the new programming model
+  await network.invokeCC(fcn, ...args);
+
+  console.log('after calling await network.invokeCC(fcn, ...args)')
+
   return client.invoke(
     config.chaincodeId, config.chaincodeVersion, fcn, ...args);
+
 }
 
-function query(fcn, ...args) {
+async function query(fcn, ...args) {
+
+  await network.invokeCC(fcn, ...args);
+
+  console.log('after calling await network.queryCC(fcn, ...args)')
+
   return client.query(
     config.chaincodeId, config.chaincodeVersion, fcn, ...args);
 }
