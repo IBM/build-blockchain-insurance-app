@@ -6,6 +6,8 @@ import { repairShopClient as client, isReady } from './setup';
 
 import network from './invoke';
 
+import * as util from 'util' // has no default export
+
 export async function getRepairOrders() {
   if (!isReady()) {
     return;
@@ -41,21 +43,39 @@ export const once = client.once.bind(client);
 export const addListener = client.addListener.bind(client);
 export const prependListener = client.prependListener.bind(client);
 export const removeListener = client.removeListener.bind(client);
-const peerType = 'insuranceUser'
+
+//identity to use for submitting transactions to smart contract
+const peerType = 'repairApp-admin3'
+let isQuery = false;
+let isCloud = true;
 
 
 async function invoke(fcn, ...args) {
-  await network.invokeCC(fcn, ...args);
 
-  console.log('after calling await network.invokeCC(fcn, ...args)')
-  
+  isQuery = false;
+
+  console.log(`args in repairPeer invoke: ${util.inspect(...args)}`)
+  console.log(`func in repairPeer invoke: ${util.inspect(fcn)}`)
+
+  if (isCloud) {
+    await network.invokeCC(isQuery, peerType, fcn, ...args);
+  }
+
   return client.invoke(
     config.chaincodeId, config.chaincodeVersion, fcn, ...args);
 }
 
 async function query(fcn, ...args) {
 
-  console.log('after calling await network.queryCC(fcn, ...args)')
+  isQuery = true; 
+
+  console.log(`args in repairPeer query: ${util.inspect(...args)}`)
+  console.log(`func in repairPeer query: ${util.inspect(fcn)}`)
+
+  if (isCloud) {
+    await network.invokeCC(isQuery, peerType, fcn, ...args);
+  }
+
   return client.query(
     config.chaincodeId, config.chaincodeVersion, fcn, ...args);
 }

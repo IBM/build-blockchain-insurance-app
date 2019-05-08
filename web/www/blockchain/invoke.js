@@ -1,76 +1,78 @@
+//Import Hyperledger Fabric 1.4 programming model - fabric-network
 const { FileSystemWallet, Gateway } = require('fabric-network');
-const fs = require('fs');
-import { wrapError, marshalArgs } from './utils';
-
-
 const path = require('path');
+const fs = require('fs');
 
+//function used to prepare args for smart contract invokation
+import { marshalArgs } from './utils';
+import * as util from 'util' // has no default export
+
+//connect to the config file
 const configPath = path.join(process.cwd(), './www/blockchain/config.json');
 const configJSON = fs.readFileSync(configPath, 'utf8');
 const config = JSON.parse(configJSON);
-var userName = config.userName;
-var gatewayDiscovery = config.gatewayDiscovery;
-var connection_file = config.connection_file;
-
-import * as util from 'util' // has no default export
 
 // connect to the connection file
 const ccpPath = path.join(process.cwd(), './www/blockchain/ibpConnection.json');
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
-const ccp = JSON.parse(ccpJSON);
+const connectionProfile = JSON.parse(ccpJSON);
 
 // A wallet stores a collection of identities for use
 const walletPath = path.join(process.cwd(), './www/blockchain/wallet');
 const wallet = new FileSystemWallet(walletPath);
 console.log(`Wallet path: ${walletPath}`);
 
-exports.invokeCC = async function (fcn, args) {
+exports.invokeCC = async function (isQuery, peerIdentity, fcn, args) {
+
   try {
 
     let response;
 
-
-    console.log('invokeCC called, which is using the new HLF 1.4 mechanism')
-    console.log(`function: ${fcn} and the args:`)
+    console.log(`invokeCC called, function: ${fcn} and the args: `)
     console.log(args)
 
     // Check to see if we've already enrolled the user.
-    const userExists = await wallet.exists(userName);
+    const userExists = await wallet.exists(peerIdentity);
     if (!userExists) {
-      console.log('An identity for the user ' + userName + ' does not exist in the wallet');
+      console.log('An identity for the user ' + peerIdentity + ' does not exist in the wallet');
       console.log('Run the registerUser.js application before retrying');
-      response.error = 'An identity for the user ' + userName + ' does not exist in the wallet. Register ' + userName + ' first';
+      response.error = 'An identity for the user ' + peerIdentity + ' does not exist in the wallet. Register ' + peerIdentity + ' first';
       return response;
     }
-    // console.log(`ccp: ${util.inspect(ccp)}`)
 
-    console.log('before gateway NewGateWay')
+    //connect to Fabric Network, but starting a new gateway
     const gateway = new Gateway();
-    console.log('before gateway.connect')
-    await gateway.connect(ccp, { wallet, identity: userName, discovery: gatewayDiscovery });
 
-    // console.log(`gateway: ${util.inspect(gateway)}`)
+    //use our config file, our peerIdentity, and our discovery options to connect to Fabric network.
+    await gateway.connect(connectionProfile, { wallet, identity: peerIdentity, discovery: config.gatewayDiscovery });
 
-    console.log('after gateway.connect, before getting network')
+    //connect to our channel that has been created on IBM Blockchain Platform
     const network = await gateway.getNetwork('mychannel-all-ca-as-operators');
 
-    console.log('before getting contract')
+    //connect to our insurance contract that has been installed / instantiated on IBM Blockchain Platform
     const contract = await network.getContract('insurance');
-    console.log('after getting contract')
 
-    if (!args) {
-      console.log('!no args!!')
-      response = await contract.submitTransaction(fcn);
+    //prepare our arguments for smart contract  
+    args = marshalArgs(args)
+
+    //submit transaction to the smart contract that is installed / instnatiated on the peers
+    if (isQuery) {
+      console.log('calling contract.evaluateTransaction, with args');
+      if (args) {
+        response = await contract.evaluateTransaction(fcn, args[0]);
+        response = JSON.parse(response.toString());
+        console.log(`response from evaluateTransaction: ${(response)}`)
+      } else {
+        console.log('calling contract.evaluateTransaction, with no args');
+        response = await contract.evaluateTransaction(fcn);
+        response = JSON.parse(response.toString());
+        console.log(`response from evaluateTransaction: ${(response)}`)
+      }
     } else {
-      console.log(`func in insurancePeer invoke: ${util.inspect(fcn)}`)
-
-      console.log(`before calling marshal, args: ${util.inspect(args)}`)
-
-      args = marshalArgs(args)
-      console.log(`after marshalArgs, args[0]: ${util.inspect(args[0])}`)
-
+      console.log('calling contract.submitTransaction');
       response = await contract.submitTransaction(fcn, args[0]);
-      console.log('after contract.submitTransaction')
+      // response = JSON.parse(response.toString());
+      console.log(`response from submitTransaction: ${(response)}`)
     }
 
     console.log('Transaction has been submitted');
@@ -80,54 +82,5 @@ exports.invokeCC = async function (fcn, args) {
 
   } catch (error) {
     console.error(`Failed to submit transaction: ${error}`);
-    // response.error = error.message;
-    // return response;
-  }
-}
-
-exports.queryCC = async function (fcn, args) {
-  try {
-
-    console.log('invokeCC called, which is using the new HLF 1.4 mechanism')
-    console.log(`function: ${fcn} and the args:`)
-    console.log(args)
-
-    // Check to see if we've already enrolled the user.
-    const userExists = await wallet.exists(userName);
-    if (!userExists) {
-      console.log('An identity for the user ' + userName + ' does not exist in the wallet');
-      console.log('Run the registerUser.js application before retrying');
-      response.error = 'An identity for the user ' + userName + ' does not exist in the wallet. Register ' + userName + ' first';
-      return response;
-    }
-
-    // Create a new gateway for connecting to our peer node.
-    const gateway = new Gateway();
-    await gateway.connect(ccp, { wallet, identity: userName, discovery: gatewayDiscovery });
-
-    // Get the network (channel) our contract is deployed to.
-    const network = await gateway.getNetwork('mychannel1');
-
-    // Get the contract from the network.
-    const contract = await network.getContract('insurance');
-
-    let response;
-    if (!args) {
-      response = await contract.evaluateTransaction(fcn);
-    } else {
-      args = JSON.stringify(args)
-      console.log(`after calling args.stringify(), args: ${args}`)
-      response = await contract.evaluateTransaction(fcn, args);
-    }
-
-    console.log('Transaction has been submitted');
-
-    // Disconnect from the gateway.
-    await gateway.disconnect();
-
-  } catch (error) {
-    console.error(`Failed to submit transaction: ${error}`);
-    response.error = error.message;
-    return response;
   }
 }
