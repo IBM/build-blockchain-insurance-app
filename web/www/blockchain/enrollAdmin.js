@@ -32,7 +32,7 @@ async function main() {
         // Create a new CA client for interacting with the CA.
         
         // const caURL = 'https://124b79efa8f544fc940408394edac7b5-ca6365f4.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7054';
-        const caURL = 'https://124b79efa8f544fc940408394edac7b5-ca6365f4.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7054';
+        const caURL = caName;
         const ca = new FabricCAServices(caURL);
 
         // Create a new file system based wallet for managing identities.

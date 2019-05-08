@@ -447,7 +447,7 @@ export function wrapError(message, innerError) {
   throw error;
 }
 
-function marshalArgs(args) {
+export function marshalArgs(args) {
   if (!args) {
     return args;
   }

@@ -1,7 +1,7 @@
 'use strict';
 
 import config from './config';
-import { wrapError } from './utils';
+import { wrapError, marshalArgs } from './utils';
 import { policeClient as client, isReady } from './setup';
 
 import network from './invoke';
@@ -37,10 +37,11 @@ export const once = client.once.bind(client);
 export const addListener = client.addListener.bind(client);
 export const prependListener = client.prependListener.bind(client);
 export const removeListener = client.removeListener.bind(client);
-const peerType = 'policeApp-admin'
+const peerType = 'insuranceUser'
 
 
 async function invoke(fcn, ...args) {
+
   await network.invokeCC(fcn, ...args);
 
   console.log('after calling await network.invokeCC(fcn, ...args)')
@@ -50,9 +51,6 @@ async function invoke(fcn, ...args) {
 }
 
 async function query(fcn, ...args) {
-  console.log('inside policepeer query')
-  
-  await network.invokeCC(fcn, ...args);
 
   console.log('after calling await network.queryCC(fcn, ...args)')
 

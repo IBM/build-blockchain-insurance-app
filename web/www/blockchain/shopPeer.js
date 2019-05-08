@@ -1,7 +1,7 @@
 'use strict';
 
 import config from './config';
-import { wrapError } from './utils';
+import { wrapError, marshalArgs } from './utils';
 import { shopClient as client, isReady } from './setup';
 import uuidV4 from 'uuid/v4';
 
@@ -25,9 +25,9 @@ export async function createContract(contract) {
     return;
   }
   try {
-    console.log(`contract: ${contract}`)
+    console.log(`contract before ojbect.assign: ${contract}`)
     let c = Object.assign({}, contract, { uuid: uuidV4() });
-    console.log(`c: ${c}`)
+    console.log(`contract after object.assign: ${c}`)
     const loginInfo = await invoke('contract_create', c);
     if (!loginInfo
       ^ !!(loginInfo && loginInfo.username && loginInfo.password)) {
@@ -95,7 +95,7 @@ export const addListener = client.addListener.bind(client);
 export const prependListener = client.prependListener.bind(client);
 export const removeListener = client.removeListener.bind(client);
 
-const peerType = 'shopApp-admin'
+const peerType = 'insuranceUser'
 
 async function invoke(fcn, ...args) {
   //using the new programming model
@@ -110,7 +110,7 @@ async function invoke(fcn, ...args) {
 
 async function query(fcn, ...args) {
 
-  await network.invokeCC(fcn, ...args);
+  // await network.invokeCC(fcn, ...args);
 
   console.log('after calling await network.queryCC(fcn, ...args)')
 

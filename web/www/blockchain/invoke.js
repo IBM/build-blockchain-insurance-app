@@ -1,5 +1,7 @@
 const { FileSystemWallet, Gateway } = require('fabric-network');
 const fs = require('fs');
+import { wrapError, marshalArgs } from './utils';
+
 
 const path = require('path');
 
@@ -10,6 +12,7 @@ var userName = config.userName;
 var gatewayDiscovery = config.gatewayDiscovery;
 var connection_file = config.connection_file;
 
+import * as util from 'util' // has no default export
 
 // connect to the connection file
 const ccpPath = path.join(process.cwd(), './www/blockchain/ibpConnection.json');
@@ -24,6 +27,9 @@ console.log(`Wallet path: ${walletPath}`);
 exports.invokeCC = async function (fcn, args) {
   try {
 
+    let response;
+
+
     console.log('invokeCC called, which is using the new HLF 1.4 mechanism')
     console.log(`function: ${fcn} and the args:`)
     console.log(args)
@@ -36,24 +42,35 @@ exports.invokeCC = async function (fcn, args) {
       response.error = 'An identity for the user ' + userName + ' does not exist in the wallet. Register ' + userName + ' first';
       return response;
     }
+    // console.log(`ccp: ${util.inspect(ccp)}`)
 
-    // Create a new gateway for connecting to our peer node.
+    console.log('before gateway NewGateWay')
     const gateway = new Gateway();
+    console.log('before gateway.connect')
     await gateway.connect(ccp, { wallet, identity: userName, discovery: gatewayDiscovery });
 
-    // Get the network (channel) our contract is deployed to.
-    const network = await gateway.getNetwork('mychannel1');
+    // console.log(`gateway: ${util.inspect(gateway)}`)
 
-    // Get the contract from the network.
+    console.log('after gateway.connect, before getting network')
+    const network = await gateway.getNetwork('mychannel-all-ca-as-operators');
+
+    console.log('before getting contract')
     const contract = await network.getContract('insurance');
+    console.log('after getting contract')
 
-    let response;
     if (!args) {
+      console.log('!no args!!')
       response = await contract.submitTransaction(fcn);
     } else {
-      args = JSON.stringify(args)
-      console.log(`after calling args.stringify(), args: ${args}`)
-      response = await contract.submitTransaction(fcn, args);
+      console.log(`func in insurancePeer invoke: ${util.inspect(fcn)}`)
+
+      console.log(`before calling marshal, args: ${util.inspect(args)}`)
+
+      args = marshalArgs(args)
+      console.log(`after marshalArgs, args[0]: ${util.inspect(args[0])}`)
+
+      response = await contract.submitTransaction(fcn, args[0]);
+      console.log('after contract.submitTransaction')
     }
 
     console.log('Transaction has been submitted');
@@ -63,8 +80,8 @@ exports.invokeCC = async function (fcn, args) {
 
   } catch (error) {
     console.error(`Failed to submit transaction: ${error}`);
-    response.error = error.message;
-    return response;
+    // response.error = error.message;
+    // return response;
   }
 }
 

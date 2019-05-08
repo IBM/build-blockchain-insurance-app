@@ -1,10 +1,14 @@
 'use strict';
 
 import config from './config';
-import { wrapError } from './utils';
+import { wrapError, marshalArgs } from './utils';
 import { insuranceClient as client, isReady } from './setup';
 import uuidV4 from 'uuid/v4';
 
+import network from './invoke';
+
+
+import * as util from 'util' // has no default export
 
 export async function getContractTypes() {
   if (!isReady()) {
@@ -98,8 +102,14 @@ export async function fileClaim(claim) {
     return;
   }
   try {
+    console.log(`claim: ${util.inspect(claim)}`)
+
     const c = Object.assign({}, claim, { uuid: uuidV4() });
+
+    console.log(`after assigning uuid in fileClaim, c: ${util.inspect(c)}`)
+
     const successResult = await invoke('claim_file', c);
+    console.log(`successResult, after calling invoke claim_file from insurancePeer.js ${util.inspect(successResult)}`)
     if (successResult) {
       throw new Error(successResult);
     }
@@ -160,10 +170,13 @@ export const once = client.once.bind(client);
 export const addListener = client.addListener.bind(client);
 export const prependListener = client.prependListener.bind(client);
 export const removeListener = client.removeListener.bind(client);
-const peerType = 'insuranceApp-admin'
+const peerType = 'insuranceUser'
 
 
 async function invoke(fcn, ...args) {
+
+  console.log(`args in insurancePeer invoke: ${util.inspect(...args)}`)
+  console.log(`func in insurancePeer invoke: ${util.inspect(fcn)}`)
 
   await network.invokeCC(fcn, ...args);
   console.log('after calling await network.invokeCC(fcn, ...args)')
@@ -174,7 +187,7 @@ async function invoke(fcn, ...args) {
 
 async function query(fcn, ...args) {
 
-  await network.invokeCC(fcn, ...args);
+  // await network.invokeCC(fcn, ...args);
   console.log('after calling await network.queryCC(fcn, ...args)')
 
   return client.query(
