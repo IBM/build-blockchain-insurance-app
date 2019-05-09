@@ -15,7 +15,7 @@ Audience level : Intermediate Developers
 * [Docker](https://www.docker.com/) Docker is a computer program that performs operating-system-level virtualization. It was first released in 2013 and is developed by Docker, Inc.
 
 ## Application Workflow Diagram
-![Workflow](images/app-architecture2.0.pdf)
+![Workflow](images/app-architecture2.0.png)
 
 1. The blockchain operator creates a IBM Kubernetes Service cluster (32CPU, 32RAM, 3 workers recommended) and an IBM Blockchain 
 Platform 2.0 service.
