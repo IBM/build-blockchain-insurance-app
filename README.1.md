@@ -354,8 +354,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 * #### Connect with sdk through connection profile
   - Under the Instantiated Smart Contract, click on `Connect with SDK` from the overflow menu on the right side of the row.
-  - Choose from the dropdown for <b>MSP for connection</b>, `org1msp`.
-  - Choose from <b>Certificate Authority</b> dropdown, `Org1 CA`.
+  - Choose from the dropdown for <b>MSP for connection</b>, `insurancemsp`.
+  - Choose from <b>Certificate Authority</b> dropdown, `Insurance CA`.
   - Download the connection profile by scrolling down and clicking <b>Download Connection Profile</b>.  This will download the connection json which we will use soon to establish connection.
   - You can click <b>Close</b> once the download completes.
 
