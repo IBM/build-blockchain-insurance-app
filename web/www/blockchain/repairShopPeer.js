@@ -45,7 +45,7 @@ export const prependListener = client.prependListener.bind(client);
 export const removeListener = client.removeListener.bind(client);
 
 //identity to use for submitting transactions to smart contract
-const peerType = 'repairApp-admin3'
+const peerType = 'repairApp-admin'
 let isQuery = false;
 let isCloud = true;
 
