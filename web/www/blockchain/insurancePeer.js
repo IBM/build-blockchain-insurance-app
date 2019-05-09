@@ -171,7 +171,7 @@ export const prependListener = client.prependListener.bind(client);
 export const removeListener = client.removeListener.bind(client);
 
 //identity to use for submitting transactions to smart contract
-const peerType = 'insuranceUser'
+const peerType = 'insuranceApp-admin'
 let isQuery = false;
 let isCloud = true;
 
