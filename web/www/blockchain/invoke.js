@@ -47,7 +47,7 @@ exports.invokeCC = async function (isQuery, peerIdentity, fcn, args) {
     await gateway.connect(connectionProfile, { wallet, identity: peerIdentity, discovery: config.gatewayDiscovery });
 
     //connect to our channel that has been created on IBM Blockchain Platform
-    const network = await gateway.getNetwork('mychannel-all-ca-as-operators');
+    const network = await gateway.getNetwork('mychannel');
 
     //connect to our insurance contract that has been installed / instantiated on IBM Blockchain Platform
     const contract = await network.getContract('insurance');
