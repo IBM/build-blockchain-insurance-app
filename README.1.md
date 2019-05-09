@@ -491,11 +491,11 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     msg: Successfully enrolled admin user shopApp-admin and imported it into the wallet
     ```
 
-  * #### Enroll repairShopApp-admin
+* #### Enroll repairShopApp-admin
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
   so that it looks something like this (your caName should be different than mine):
 
-    ```js
+  ```js
   {
       "connection_file": "ibpConnection.json",
       "appAdmin": "repairShopApp-admin",
@@ -506,12 +506,21 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
       "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
   }
   ```
+  - Run the `enrollAdmin.js` script
+  ```bash
+  node enrollAdmin.js
+  ```
+
+  - You should see the following in the terminal:
+    ```bash
+    msg: Successfully enrolled admin user repairShopApp-admin and imported it into the wallet
+    ```
 
   * #### Enroll policeApp-admin
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
   so that it looks something like this (your caName should be different than mine):
 
-    ```js
+  ```js
   {
       "connection_file": "ibpConnection.json",
       "appAdmin": "policeApp-admin",
@@ -521,6 +530,16 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
       "userName": "policeUser",
       "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
   }
+  ```
+
+  - Run the `enrollAdmin.js` script
+  ```bash
+  node enrollAdmin.js
+  ```
+
+  - You should see the following in the terminal:
+  ```bash
+  msg: Successfully enrolled admin user policeApp-admin and imported it into the wallet
   ```
   
   
