@@ -447,6 +447,23 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 }
 ```
 
+## Step 8. Run the application
+
+* #### Enroll admin
+  - First, navigate to the `web/www/blockchain` directory.
+    ```bash
+    cd web/www/blockchain/
+    ```
+  
+  - Run the `enrollAdmin.js` script
+    ```bash
+    node enrollAdmin.js
+    ```
+
+  - You should see the following in the terminal:
+    ```bash
+    msg: Successfully enrolled admin user insuranceApp-admin and imported it into the wallet
+    ```
 
 1. [Run the application](#1-run-the-application)
 
@@ -552,78 +569,8 @@ The application will show you the total sum of your purchase. By clicking on “
 
 >note You can see the block by clicking on the black arrow on the bottom-right.
 
-![Bike Insurance](images/Picture5.png)
-
-Login credentials. Block written to the chain.
-
-![Login Credentials](images/Picture6.png)
-
-Once an incident has happened the Biker can file a claim on his own by selecting the “claim Self-Service” tab.
-
-![Claim Service](images/Picture61.png)
-
-The Biker will be asked to login by using the credentials that had been given to him before.
-
-![Login](images/Picture7.png)
-
-He can file a new claim by selecting the tab shown above.
-
-![File Claim](images/Picture8.png)
-
-The Biker can briefly describe the damage on his bike and/or select whether it has been stolen. In case the Bike has been stolen the claim will be processed through the police who has to confirm or deny the theft (option 1). In case there was just a damage the claim will be processed through the repair shop (option 2). In the following section, we will start with option 1.
-
-![Claim Description](images/Picture9.png)
-
-**Option 1**
-
-Once the Biker has submitted the claim it will be shown in the box marked in red. Furthermore, another block is being written to the chain.
-![Claim Block](images/Picture10.png)
-
-The Biker can also view the active claims. **Note:** You may need to re-log into Claims Processing to see the new active claim.
-
-![Active Claims](images/Picture11.png)
-
-By selecting “claim processing” the Insurance company can view all active claims that have not been processed yet. A clerk can decide on the claims in this view. Since we are still looking at option 1 the theft has to be confirmed or denied by the police. Therefore, the insurance company can only reject the claim at this point in stage.
-
-![Claim Processing](images/Picture12.png)
-
-The Police Peer can view the claims that include theft. In case the bike has been reported stolen they can confirm the claim and include a file reference number. In case no theft has been reported they can reject the claim and it will not be processed.
-
-![Police Peer](images/Picture13.png)
-
-Let’s assume the Biker did not rip-off the insurance company and has reported the bike as stolen. The police will confirm the claim which results in another Block being written to the chain.
-
-![Police Transaction](images/Picture14.png)
-
-Going back to the “claim processing” tab you can see that the insurance company has the option to reimburse the claim now because the police had confirmed that the bike has been stolen. Block is being written to the chain
-
-![Claim Processing](images/Picture15.png)
-
-The Biker can see the new status of his claim which changed to reimbursed.
-
-![User login](images/Picture16.png)
-
-**Option 2**
-
-Option 2 covers the case of an accident.
-
-![Accident](images/Picture17.png)
-
-The insurance “claim processing” tab shows the unprocessed claims. A clerk can choose between three options on how to process the claim. “Reject” will stop the claim process whereas “reimburse” leads directly to the payment to the customer. In case something needs to be repaired the insurance company has the option to select “repair”. This will forward the claim to a repair shop and will generate a repair order. A block is being written to the chain.
-
-![Claim Processing](images/Picture18.png)
-
-The Repair Shop will get a message showing the repair order. Once they’ve done the repair works the repair shop can mark the order as completed. Afterwards, the insurance company will get a message to proceed the payment to the repair shop. a block is being written to the chain
-
-![Reapir Shop](images/Picture19.png)
-
-The Biker can see in his “claim self-service” tab that the claim has been resolved and the bike was repaired by the shop.
-
-![Claim Status](images/Picture20.png)
-
-The insurance company has the option to activate or deactivate certain contracts. This does not mean that contracts that have already been signed by customers will be no longer valid. It just does not allow new signings for these types of contracts. In addition, the insurance company has the possibility to create new contract templates that have different terms and conditions and a different pricing.  Any transaction will result in a block being written to the chain.
-
-![Contract Management](images/Picture21.png)
+At this point, you should be able to go into your IBM Blockchain Platform console, click on the channels, and then 
+be able to see the contract_create block being added. 
 
 ## Additional resources
 Following is a list of additional blockchain resources:
