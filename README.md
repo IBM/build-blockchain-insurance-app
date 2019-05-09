@@ -67,14 +67,51 @@ Kubernetes cluster (and only two organizations), so if you want to try that one 
 ## Step 1. Create IBM Cloud services
 
 * Create the [IBM Cloud Kubernetes Service](https://cloud.ibm.com/catalog/infrastructure/containers-kubernetes).  You can 
-find the service in the `Catalog`.  For this code pattern, we can use the 16CPU, 16GB RAMcluster, and give it a name. 
-<b>The cluster takes around 10-15 minutes to provision, so please be patient!</b>
+find the service in the `Catalog`. Note that the gif shows creating a free cluster, <b>but for this code pattern, we need to use the 32CPU, 32GB RAM cluster.</b>.
+
 
 <br>
 <p align="center">
   <img src="images/gifs/create-ibm-kubernetes-service.gif">
 </p>
 <br>
+
+* Once you reach the <b> create a new cluster page </b> you will need to do the following:
+  - Fill out cluster name
+  - choose Geography: <b>North America</b>
+  - Choose Location and availability: <b>Multizone</b>
+  - Choose Metro: <b>Dallas</b>
+  - Choose Worker nodes: <b>Dallas 10 only</b>
+  - Choose Master service endpoint: <b>Both private & public endpoints</b>
+  - Choose Default worker pool: <b>1.12.7 (Stable, Default)</b>
+  - Choose Master service endpoint: <b>Both private & public endpoints</b>
+
+<br>
+<p align="center">
+  <img src="images/kubeLocation.png">
+</p>
+<br>
+
+  - Choose Flavor <b>32 Cores 32GB RAM, Ubuntu 18</b>
+
+<br>
+<p align="center">
+  <img src="images/kube32.png">
+</p>
+<br>
+
+  - Choose Encrypt local disk <b>Yes</b>
+  - Choose Worker nodes <b>3</b>
+
+
+<br>
+<p align="center">
+  <img src="images/kubeWorker.png">
+</p>
+<br>
+
+  - Click on <b>create cluster</b>
+
 
 * Create the [IBM Blockchain Platform V2 Beta](https://console.bluemix.net/catalog/services/blockchain/) service on the IBM Cloud.  You can find the service in the `Catalog`, and give a name.
 
