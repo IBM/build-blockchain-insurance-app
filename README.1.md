@@ -447,9 +447,9 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 }
 ```
 
-## Step 8. Run the application
+## Step 8. Enroll App Admin Identities
 
-* #### Enroll admin
+* #### Enroll insurnaceApp-admin
   - First, navigate to the `web/www/blockchain` directory.
     ```bash
     cd web/www/blockchain/
@@ -465,9 +465,69 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     msg: Successfully enrolled admin user insuranceApp-admin and imported it into the wallet
     ```
 
+* #### Enroll shopApp-admin
+  - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
+  so that it looks something like this (your caName should be different than mine):
+
+  ```js
+  {
+      "connection_file": "ibpConnection.json",
+      "appAdmin": "shopApp-admin",
+      "appAdminSecret": "shopApp-adminpw",
+      "orgMSPID": "shopmsp",
+      "caName": "fa707c454921423c80e8d7545c-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+      "userName": "shopUser",
+      "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+  }
+  ```
+  
+  - Run the `enrollAdmin.js` script
+    ```bash
+    node enrollAdmin.js
+    ```
+
+  - You should see the following in the terminal:
+    ```bash
+    msg: Successfully enrolled admin user shopApp-admin and imported it into the wallet
+    ```
+
+  * #### Enroll repairShopApp-admin
+  - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
+  so that it looks something like this (your caName should be different than mine):
+
+    ```js
+  {
+      "connection_file": "ibpConnection.json",
+      "appAdmin": "repairShopApp-admin",
+      "appAdminSecret": "repairShopApp-adminpw",
+      "orgMSPID": "repairshopmsp",
+      "caName": "fsdfasfds-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+      "userName": "repairUser",
+      "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+  }
+  ```
+
+  * #### Enroll policeApp-admin
+  - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
+  so that it looks something like this (your caName should be different than mine):
+
+    ```js
+  {
+      "connection_file": "ibpConnection.json",
+      "appAdmin": "policeApp-admin",
+      "appAdminSecret": "policeApp-adminpw",
+      "orgMSPID": "policemsp",
+      "caName": "fsdfafafsfds-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+      "userName": "policeUser",
+      "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+  }
+  ```
+  
+  
+
 1. [Run the application](#1-run-the-application)
 
-## 1. Run the application
+## Step 9. Run the application
 
 Clone the repository:
 ```bash
@@ -571,6 +631,9 @@ The application will show you the total sum of your purchase. By clicking on “
 
 At this point, you should be able to go into your IBM Blockchain Platform console, click on the channels, and then 
 be able to see the contract_create block being added. 
+
+![Blocks](images/blocks.png)
+
 
 ## Additional resources
 Following is a list of additional blockchain resources:
