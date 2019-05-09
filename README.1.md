@@ -139,6 +139,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - We will repeat the process to create an identity of the peer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `policePeer`, and <b>Enroll Secret</b> of `policePeerpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select `org1` from the affiliated organizations drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
 
 
+## Step 3. Build a network - Create MSP Definitions
+
 * #### Create the insurance MSP definition
   - Navigate to the <b>Organizations</b> tab in the left navigation and click <b>Create MSP definition</b>.
   - Enter the <b>MSP Display name</b> as `Insurance MSP` and an <b>MSP ID</b> of `insurancemsp`.
@@ -173,6 +175,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Give the <b>Enroll ID</b> and <b>Enroll secret</b> for your organization admin, `policeAdmin` and `policeAdminpw`. Then, give the Identity name, `Police Admin`.
   - Click the <b>Generate</b> button to enroll this identity as the admin of your organization and export the identity to the wallet. Click <b>Export</b> to export the admin certificates to your file system. Finally click <b>Create MSP definition</b>.
 
+
+## Step 4. Build a network - Create Peers
 
 * Create an insurance peer
   - On the <b>Nodes</b> page, click <b>Add peer</b>.
@@ -216,7 +220,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - The last side panel will ask you to <b>Associate an identity</b> and make it the admin of your peer. Select your peer admin identity `Police Admin`.
   - Review the summary and click <b>Submit</b>.
 
-### Create the node that orders transactions
+## Step 5. Build a network - Create Orderer
 
 * #### Create your orderer organization CA
   - Click <b>Add Certificate Authority</b>.
@@ -282,8 +286,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 </p>
 <br>
 
-
-### Create and join channel
+## Step 6. Build a network - Create and Join Channel
 
 * #### Create the channel
   - Navigate to the <b>Channels</b> tab in the left navigation.
@@ -318,7 +321,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 </p>
 <br>
 
-## Step 6. Deploy Insurance Smart Contract on the network
+## Step 7. Deploy Insurance Smart Contract on the network
 
 * #### Install a smart contract
 * Clone the repository:
@@ -350,7 +353,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 </p>
 <br>
 
-## Step 7. Connect application to the network
+## Step 8. Connect application to the network
 
 * #### Connect with sdk through connection profile
   - Under the Instantiated Smart Contract, click on `Connect with SDK` from the overflow menu on the right side of the row.
@@ -435,19 +438,19 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 - Once you are done, the final version of the **config.json** should look something like this (note that I took the caName from the above pic):
 
-```js
-{
-    "connection_file": "ibpConnection.json",
-    "appAdmin": "insuranceApp-admin",
-    "appAdminSecret": "insuranceApp-adminpw",
-    "orgMSPID": "insurancemsp",
-    "caName": "fa707c454921423c80ec3c3c38d7545c-ca29327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
-    "userName": "insuranceUser",
-    "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
-}
-```
+  ```js
+  {
+      "connection_file": "ibpConnection.json",
+      "appAdmin": "insuranceApp-admin",
+      "appAdminSecret": "insuranceApp-adminpw",
+      "orgMSPID": "insurancemsp",
+      "caName": "fa707c454921423c80ec3c3c38d7545c-ca29327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+      "userName": "insuranceUser",
+      "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+  }
+  ```
 
-## Step 8. Enroll App Admin Identities
+## Step 9. Enroll App Admin Identities
 
 * #### Enroll insurnaceApp-admin
   - First, navigate to the `web/www/blockchain` directory.
@@ -469,17 +472,17 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
   so that it looks something like this (your caName should be different than mine):
 
-  ```js
-  {
-      "connection_file": "ibpConnection.json",
-      "appAdmin": "shopApp-admin",
-      "appAdminSecret": "shopApp-adminpw",
-      "orgMSPID": "shopmsp",
-      "caName": "fa707c454921423c80e8d7545c-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
-      "userName": "shopUser",
-      "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
-  }
-  ```
+    ```js
+    {
+        "connection_file": "ibpConnection.json",
+        "appAdmin": "shopApp-admin",
+        "appAdminSecret": "shopApp-adminpw",
+        "orgMSPID": "shopmsp",
+        "caName": "fa707c454921423c80e8d7545c-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+        "userName": "shopUser",
+        "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+    }
+    ```
   
   - Run the `enrollAdmin.js` script
     ```bash
@@ -495,17 +498,17 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
   so that it looks something like this (your caName should be different than mine):
 
-  ```js
-  {
-      "connection_file": "ibpConnection.json",
-      "appAdmin": "repairShopApp-admin",
-      "appAdminSecret": "repairShopApp-adminpw",
-      "orgMSPID": "repairshopmsp",
-      "caName": "fsdfasfds-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
-      "userName": "repairUser",
-      "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
-  }
-  ```
+    ```js
+    {
+        "connection_file": "ibpConnection.json",
+        "appAdmin": "repairShopApp-admin",
+        "appAdminSecret": "repairShopApp-adminpw",
+        "orgMSPID": "repairshopmsp",
+        "caName": "fsdfasfds-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+        "userName": "repairUser",
+        "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+    }
+    ```
   - Run the `enrollAdmin.js` script
   ```bash
   node enrollAdmin.js
@@ -516,21 +519,21 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     msg: Successfully enrolled admin user repairShopApp-admin and imported it into the wallet
     ```
 
-  * #### Enroll policeApp-admin
+* #### Enroll policeApp-admin
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
   so that it looks something like this (your caName should be different than mine):
 
-  ```js
-  {
-      "connection_file": "ibpConnection.json",
-      "appAdmin": "policeApp-admin",
-      "appAdminSecret": "policeApp-adminpw",
-      "orgMSPID": "policemsp",
-      "caName": "fsdfafafsfds-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
-      "userName": "policeUser",
-      "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
-  }
-  ```
+    ```js
+    {
+        "connection_file": "ibpConnection.json",
+        "appAdmin": "policeApp-admin",
+        "appAdminSecret": "policeApp-adminpw",
+        "orgMSPID": "policemsp",
+        "caName": "fsdfafafsfds-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+        "userName": "policeUser",
+        "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+    }
+    ```
 
   - Run the `enrollAdmin.js` script
   ```bash
@@ -544,9 +547,9 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   
   
 
-1. [Run the application](#1-run-the-application)
+[Run the application](10-run-the-application)
 
-## Step 9. Run the application
+## Step 10. Run the application
 
 Clone the repository:
 ```bash
