@@ -49,7 +49,7 @@ find the service in the `Catalog`.  For this code pattern, we can use the 16CPU,
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/create-ibm-kubernetes-service.gif">
+  <img src="images/gifs/create-ibm-kubernetes-service.gif">
 </p>
 <br>
 
@@ -77,7 +77,7 @@ find the service in the `Catalog`.  For this code pattern, we can use the 16CPU,
 </p>
 <br>
 
-## Step 2. Build a network
+## Step 2. Build a network - Certificate Authority
 
 We will build a network as provided by the IBM Blockchain Platform [documentation](https://console.bluemix.net/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network).  This will include creating a channel with a single peer organization with its own MSP and CA (Certificate Authority), and an orderer organization with its own MSP and CA. We will create the respective identities to deploy peers and operate nodes.
 
@@ -124,17 +124,17 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 <br>
 
 * #### Use your CA to register shop identities (process is same as shown in gif above)
-  - Select the <b>Insurance CA</b> Certificate Authority that we created.
+  - Select the <b>Shop CA</b> Certificate Authority that we created.
   - First, we will register an admin for our Insurance Organization. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `shopAdmin`, and <b>Enroll Secret</b> of `shopAdminpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `client` and select `org1` from the affiliated organizations drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
   - We will repeat the process to create an identity of the peer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `shopPeer`, and <b>Enroll Secret</b> of `shopPeerpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select `org1` from the affiliated organizations drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
 
 * #### Use your CA to register repair shop identities (process is same as shown in gif above)
-  - Select the <b>Insurance CA</b> Certificate Authority that we created.
+  - Select the <b>Repair Shop CA</b> Certificate Authority that we created.
   - First, we will register an admin for our Insurance Organization. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `repairShopAdmin`, and <b>Enroll Secret</b> of `repairShopAdminpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `client` and select `org1` from the affiliated organizations drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
   - We will repeat the process to create an identity of the peer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `repairShopPeer`, and <b>Enroll Secret</b> of `repairShopPeerpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select `org1` from the affiliated organizations drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
 
 * #### Use your CA to register police shop identities (process is same as shown in gif above)
-  - Select the <b>Insurance CA</b> Certificate Authority that we created.
+  - Select the <b>Police CA</b> Certificate Authority that we created.
   - First, we will register an admin for our Insurance Organization. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `policeAdmin`, and <b>Enroll Secret</b> of `policeAdminpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `client` and select `org1` from the affiliated organizations drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
   - We will repeat the process to create an identity of the peer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `policePeer`, and <b>Enroll Secret</b> of `policePeerpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select `org1` from the affiliated organizations drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
 
@@ -318,9 +318,13 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 </p>
 <br>
 
-## Step 6. Deploy Blockchainbean2 Smart Contract on the network
+## Step 6. Deploy Insurance Smart Contract on the network
 
 * #### Install a smart contract
+* Clone the repository:
+  ```bash
+  git clone https://github.com/IBM/build-blockchain-insurance-app
+  ```
   - Click the <b>Smart contracts</b> tab to install the smart contract.
   - Click <b>Install smart contract</b> to upload the insurance smart contract package file.
   - Click on <b>Add file</b> and find your packaged smart contract. It is the file in the `build-blockchain-insurance-app/chaincodePackage` directory. 
