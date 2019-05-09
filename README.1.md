@@ -417,13 +417,13 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Your new folder structure should look like below (i.e. should have your newly downloaded and newly renamed file **ibpConnection.json**: 
 
   <p align="center">
-    <img src="docs/ibpConnection.png">
+    <img src="images/ibpConnection.png">
   </p>
 
   - The **ibpConnection.json** file should look something like this: 
 
    <p align="center">
-    <img src="docs/ibpConnectionCode.png">
+    <img src="images/ibpConnectionCode.png">
   </p>
 
   - Update the [config.json](server/config.json) file with:
