@@ -407,6 +407,45 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Under <b>Attributes</b>, click on <b>Add attribute</b>.  Give attribute as `hf.Registrar.Roles` = `*`.  This will allow this identity to act as registrar and issues identities for our app.  Click <b>Add-attribute</b>.
   - Click <b>Register</b>.
 
+ #### Update application connection
+  - Copy the connection profile you downloaded into the `web/www/blockchain` directory.
+  - Name the connection profile you downloaded **ibpConnection.json**. This should automatically overwrite the 
+    file that is currently in that directory. 
+  - Your new folder structure should look like below (i.e. should have your newly downloaded and newly renamed file **ibpConnection.json**: 
+
+  <p align="center">
+    <img src="docs/ibpConnection.png">
+  </p>
+
+  - The **ibpConnection.json** file should look something like this: 
+
+   <p align="center">
+    <img src="docs/ibpConnectionCode.png">
+  </p>
+
+  - Update the [config.json](server/config.json) file with:
+    - The connection json file name you downloaded.
+    - The <b>enroll id</b> and <b>enroll secret</b> for your app admin, which we earlier provided as `insuranceApp-admin` and `insuranceApp-adminpw`.
+    - The orgMSP ID, which we provided as `insurancemsp`.
+    - The caName, which can be found in your connection json file under "organization" -> "insurance" -> certificateAuthorities". This would be like an IP address and a port. This is circled in red above.
+    - The username you would like to register.
+    - Update gateway discovery to `{ enabled: true, asLocalhost: false }` to connect to IBP.
+
+> the current default setup is to connect to a local fabric instance from VS Code
+
+- Once you are done, the final version of the **config.json** should look something like this (note that I took the caName from the above pic):
+
+```js
+{
+    "connection_file": "ibpConnection.json",
+    "appAdmin": "insuranceApp-admin",
+    "appAdminSecret": "insuranceApp-adminpw",
+    "orgMSPID": "insurancemsp",
+    "caName": "fa707c454921423c80ec3c3c38d7545c-ca29327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+    "userName": "insuranceUser",
+    "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+}
+```
 
 
 1. [Run the application](#1-run-the-application)
