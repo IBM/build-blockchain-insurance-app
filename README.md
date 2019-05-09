@@ -48,21 +48,21 @@ We find that Blockchain can be finicky when it comes to installing Node. We want
 
 > To run a local network, you can find steps [here](./README-local.md)
 
-1. [Create IBM Cloud services](#1-Create-IBM-Cloud-services)
-2. [Build a network - Certificate Authority](#2-Build-a-network---Certificate-Authority)
-3. [Build a network - Create MSP Definitions](#3-Build-a-network---Create-MSP-Definitions)
-4. [Build a network - Create Peers](#4-build-a-network---Create-Peers)
-5. [Build a network - Create Orderer](#5-Build-a-network---Create-Orderer)
-6. [Build a network - Create and Join Channel](#6-Build-a-network---Create-and-Join-Channel)
-7. [Deploy Insurance Smart Contract on the network](#7-Deploy-Insurance-Smart-Contract-on-the-network)
-8. [Connect application to the network](#8-Connect-application-to-the-network)
-9. [Enroll App Admin Identities](#9-Enroll-App-Admin-Identities)
-10. [Run the application](#10-Run-the-application)
+1. [Create IBM Cloud services](#step-1-Create-IBM-Cloud-services)
+2. [Build a network - Certificate Authority](#step-2-Build-a-network---Certificate-Authority)
+3. [Build a network - Create MSP Definitions](#step-3-Build-a-network---Create-MSP-Definitions)
+4. [Build a network - Create Peers](#step-4-build-a-network---Create-Peers)
+5. [Build a network - Create Orderer](#step-5-Build-a-network---Create-Orderer)
+6. [Build a network - Create and Join Channel](#step-6-Build-a-network---Create-and-Join-Channel)
+7. [Deploy Insurance Smart Contract on the network](#step-7-Deploy-Insurance-Smart-Contract-on-the-network)
+8. [Connect application to the network](#step-8-Connect-application-to-the-network)
+9. [Enroll App Admin Identities](#step-9-Enroll-App-Admin-Identities)
+10. [Run the application](#step-10-Run-the-application)
 
 **Important Note:** This pattern is more advanced because it uses four organizations. For this reason, you will likely
 have to get a paid kubernetes cluster to run this pattern on the cloud, since a free cluster will not have the CPU/storage 
 necessary to deploy all of the pods that we need to run this pattern. There are other patterns that leverage a free
-Kubernetes cluster (and only two organizations), so if you want to that one out first, go [here](https://github.com/IBM/blockchainbean2). 
+Kubernetes cluster (and only two organizations), so if you want to try that one out first, go [here](https://github.com/IBM/blockchainbean2). 
 
 ## Step 1. Create IBM Cloud services
 
@@ -563,10 +563,6 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   msg: Successfully enrolled admin user policeApp-admin and imported it into the wallet
   ```
   
-  
-
-[Run the application](10-run-the-application)
-
 ## Step 10. Run the application
 
 Clone the repository:
