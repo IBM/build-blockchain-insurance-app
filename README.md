@@ -496,12 +496,19 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
         "appAdmin": "shopApp-admin",
         "appAdminSecret": "shopApp-adminpw",
         "orgMSPID": "shopmsp",
-        "caName": "fa707c454921423c80e8d7545c-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+        "caName": "https://fa707c454921423c80ec3c3c38d7545c-caf2e287.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
         "userName": "shopUser",
         "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
     }
     ```
-  
+  - To find the other CA urls, you will need to click on the `Nodes` tab in IBM Blockchain Platform, then on 
+    the Shop CA, and on the settings cog icon at the top of the page. That will take you to the certificate 
+    authority settings, as shown in the picture below, and you can copy that endpoint URL into your `config.json` **caName**
+    field.
+
+  <p align="center">
+    <img src="images/caSettings.png">
+  </p>  
   - Run the `enrollAdmin.js` script
     ```bash
     node enrollAdmin.js
@@ -522,7 +529,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
         "appAdmin": "repairShopApp-admin",
         "appAdminSecret": "repairShopApp-adminpw",
         "orgMSPID": "repairshopmsp",
-        "caName": "fsdfasfds-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+        "caName": "https://fa707c454921423c80ec3c3c38d7545c-caf2e287.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
         "userName": "repairUser",
         "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
     }
@@ -547,7 +554,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
         "appAdmin": "policeApp-admin",
         "appAdminSecret": "policeApp-adminpw",
         "orgMSPID": "policemsp",
-        "caName": "fsdfafafsfds-9327e.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
+        "caName": "https://fa707c454921423c80ec3c3c38d7545c-caf2e287.horeainsurancetest.us-south.containers.appdomain.cloud:7054",
         "userName": "policeUser",
         "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
     }
