@@ -57,7 +57,7 @@ find the service in the `Catalog`.  For this code pattern, we can use the 16CPU,
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/create-ibm-blockchain-2-service.gif">
+  <img src="images/gifs/create-ibm-blockchain-2-service.gif">
 </p>
 <br>
 
@@ -65,7 +65,7 @@ find the service in the `Catalog`.  For this code pattern, we can use the 16CPU,
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/deploy-blockchain-on-cluster.gif">
+  <img src="images/gifs/deploy-blockchain-on-cluster.gif">
 </p>
 <br>
 
@@ -73,7 +73,7 @@ find the service in the `Catalog`.  For this code pattern, we can use the 16CPU,
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/launch-ibm-blockchain.gif">
+  <img src="images/gifs/launch-ibm-blockchain.gif">
 </p>
 <br>
 
@@ -89,7 +89,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/create-peer-org1-ca.gif">
+  <img src="images/gifs/create-peer-org1-ca.gif">
 </p>
 <br>
 
@@ -119,7 +119,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/org1-ca-register-identities.gif">
+  <img src="images/gifs/org1-ca-register-identities.gif">
 </p>
 <br>
 
@@ -148,7 +148,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/peer-org-msp-def.gif">
+  <img src="images/gifs/peer-org-msp-def.gif">
 </p>
 <br>
 
@@ -185,7 +185,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/create-peer.gif">
+  <img src="images/gifs/create-peer.gif">
 </p>
 <br>
  
@@ -226,7 +226,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/orderer-org-ca.gif">
+  <img src="images/gifs/orderer-org-ca.gif">
 </p>
 <br>
 
@@ -237,7 +237,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/orderer-ca-register-identities.gif">
+  <img src="images/gifs/orderer-ca-register-identities.gif">
 </p>
 <br>
 
@@ -250,7 +250,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/orderer-org-msp-def.gif">
+  <img src="images/gifs/orderer-org-msp-def.gif">
 </p>
 <br>
 
@@ -265,7 +265,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/create-orderer.gif">
+  <img src="images/gifs/create-orderer.gif">
 </p>
 <br>
 
@@ -278,7 +278,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/add-org-orderer.gif">
+  <img src="images/gifs/add-org-orderer.gif">
 </p>
 <br>
 
@@ -300,7 +300,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/create-channel.gif">
+  <img src="images/gifs/create-channel.gif">
 </p>
 <br>
 
@@ -314,7 +314,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/join-channel.gif">
+  <img src="images/gifs/join-channel.gif">
 </p>
 <br>
 
@@ -329,7 +329,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/install-smart-contract.gif">
+  <img src="images/gifs/install-smart-contract.gif">
 </p>
 <br>
 
@@ -342,7 +342,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/instantiate-smart-contract.gif">
+  <img src="images/gifs/instantiate-smart-contract.gif">
 </p>
 <br>
 
@@ -357,7 +357,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/connect-with-sdk.gif">
+  <img src="images/gifs/connect-with-sdk.gif">
 </p>
 <br>
 
@@ -372,7 +372,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/register-app-admin.gif">
+  <img src="images/gifs/register-app-admin.gif">
 </p>
 <br>
 
