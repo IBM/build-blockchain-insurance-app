@@ -77,6 +77,7 @@ find the service in the `Catalog`. Note that the gif shows creating a free clust
 <br>
 
 * Once you reach the <b> create a new cluster page </b> you will need to do the following:
+  - Choose <b>standard</b> cluster type
   - Fill out cluster name
   - choose Geography: <b>North America</b>
   - Choose Location and availability: <b>Multizone</b>
