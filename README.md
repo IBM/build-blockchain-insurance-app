@@ -9,6 +9,17 @@ about running this pattern locally, please find the local instructions [here](./
 
 Audience level : Intermediate Developers
 
+When the reader has completed this code pattern, they will understand how to:
+
+* Create a Kubernetes Cluster using the IBM Kubernetes Service
+* Create an IBM Blockchain service, and launch the service onto the Kubernetes cluster
+* Create a network, including all relevant components, such as Certificate Authority, MSP (Membership Service Providers),
+  peers, orderers, and channels.
+* Deploy a packaged smart contract onto the IBM Blockchain Platform by installing and instantiating it on the peers.
+* Use the connection profile from IBM Blockchain Platform to create application admins, and submit transactions from our 
+client application.
+* View transaction details on our channel from IBM Blockchain Platform.
+
 ## Application Workflow Diagram
 ![Workflow](images/app-architecture2.0.png)
 
@@ -112,6 +123,9 @@ find the service in the `Catalog`. Note that the gif shows creating a free clust
 <br>
 
   - Click on <b>create cluster</b>
+
+<b>The cluster takes around 15-20
+minutes to provision, so please be patient!</b>
 
 
 * Create the [IBM Blockchain Platform V2 Beta](https://console.bluemix.net/catalog/services/blockchain/) service on the IBM Cloud.  You can find the service in the `Catalog`, and give a name.
