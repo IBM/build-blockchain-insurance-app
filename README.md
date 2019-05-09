@@ -23,7 +23,7 @@ Audience level : Intermediate Developers
 ## Application Workflow Diagram
 ![Workflow](images/app-architecture2.0.png)
 
-1. The blockchain operator creates a IBM Kubernetes Service cluster (32CPU, 32RAM, 3 workers recommended) and an IBM Blockchain 
+1. The blockchain operator creates a IBM Kubernetes Service cluster (<b>32CPU, 32RAM, 3 workers recommended</b>) and an IBM Blockchain 
 Platform 2.0 service.
 2. The IBM Blockchain Platform 2.0 creates a Hyperledger Fabric network on an IBM Kubernetes 
 Service, and the operator installs and instantiates the smart contract on the network.
@@ -43,6 +43,21 @@ We find that Blockchain can be finicky when it comes to installing Node. We want
 * **[Python](https://www.python.org/downloads/) - 2.7.x**
 
 # Steps
+
+### Steps
+
+> To run a local network, you can find steps [here](./README-local.md)
+
+1. [Create IBM Cloud services](#1-Create-IBM-Cloud-services)
+2. [Build a network - Certificate Authority](#2-Build-a-network---Certificate-Authority)
+3. [Build a network - Create MSP Definitions](#3-Build-a-network---Create-MSP-Definitions)
+4. [Build a network - Create Peers](#4-build-a-network---Create-Peers)
+5. [Build a network - Create Orderer](#5-Build-a-network---Create-Orderer)
+6. [Build a network - Create and Join Channel](#6-Build-a-network---Create-and-Join-Channel)
+7. [Deploy Insurance Smart Contract on the network](#7-Deploy-Insurance-Smart-Contract-on-the-network)
+8. [Connect application to the network](#8-Connect-application-to-the-network)
+9. [Enroll App Admin Identities](#9-Enroll-App-Admin-Identities)
+10. [Run the application](#10-Run-the-application)
 
 **Important Note:** This pattern is more advanced because it uses four organizations. For this reason, you will likely
 have to get a paid kubernetes cluster to run this pattern on the cloud, since a free cluster will not have the CPU/storage 
