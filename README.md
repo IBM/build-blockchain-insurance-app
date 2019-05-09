@@ -504,17 +504,20 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - To find the other CA urls, you will need to click on the `Nodes` tab in IBM Blockchain Platform, then on 
     the Shop CA, and on the settings cog icon at the top of the page. That will take you to the certificate 
     authority settings, as shown in the picture below, and you can copy that endpoint URL into your `config.json` **caName**
-    field.
+    field. 
+    <p align="center">
+      <img src="images/caSettings.png">
+    </p>  
+    <br>
 
-  <p align="center">
-    <img src="images/caSettings.png">
-  </p>  
   - Run the `enrollAdmin.js` script
+    
     ```bash
     node enrollAdmin.js
     ```
 
   - You should see the following in the terminal:
+
     ```bash
     msg: Successfully enrolled admin user shopApp-admin and imported it into the wallet
     ```
@@ -535,9 +538,9 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     }
     ```
   - Run the `enrollAdmin.js` script
-  ```bash
-  node enrollAdmin.js
-  ```
+      ```bash
+      node enrollAdmin.js
+      ```
 
   - You should see the following in the terminal:
     ```bash
@@ -561,21 +564,21 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     ```
 
   - Run the `enrollAdmin.js` script
-  ```bash
-  node enrollAdmin.js
-  ```
+      ```bash
+      node enrollAdmin.js
+      ```
 
   - You should see the following in the terminal:
-  ```bash
-  msg: Successfully enrolled admin user policeApp-admin and imported it into the wallet
-  ```
+      ```bash
+      msg: Successfully enrolled admin user policeApp-admin and imported it into the wallet
+      ```
   
 ## Step 10. Run the application
 
 Clone the repository:
-```bash
-git clone https://github.com/IBM/build-blockchain-insurance-app
-```
+  ```bash
+  git clone https://github.com/IBM/build-blockchain-insurance-app
+  ```
 
 Login using your [docker hub](https://hub.docker.com/) credentials.
 ```bash
