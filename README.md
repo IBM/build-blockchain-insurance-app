@@ -309,16 +309,10 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 </p>
 <br>
 
-* #### Use your CA to register orderer and orderer admin identities
+* #### Use your CA to register orderer and orderer admin identities (shown in gif above)
   - In the <b>Nodes</b> tab, select the <b>Orderer CA</b> Certificate Authority that we created.
   - First, we will register an admin for our organization. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `ordereradmin`, and <b>Enroll Secret</b> of `ordereradminpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `client` and select `org1` from the affiliated organizations drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
   - We will repeat the process to create an identity of the orderer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `orderer1`, and <b>Enroll Secret</b> of `orderer1pw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select `org1` from the affiliated organizations drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
-
-<br>
-<p align="center">
-  <img src="images/gifs/orderer-ca-register-identities.gif">
-</p>
-<br>
 
 * #### Create the orderer organization MSP definition
   - Navigate to the <b>Organizations</b> tab in the left navigation and click <b>Create MSP definition</b>.
