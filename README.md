@@ -396,6 +396,22 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 </p>
 <br>
 
+* #### Add anchor peers to the channel
+  - In order to communicate between organizations, we need to enroll anchor peers.
+  - From the channels tab, click on `channel details`. Scroll all the way down until you 
+    see `Anchor peers`.
+  - Click `Add anchor peer` and add the Insurance, Police, Repair Shop,
+    and Shop peers.
+  - Select which peers you want to join the channel, click `Insurance Peer`, `Shop Peer`, `Repair Shop Peer`, and `Police Peer`.
+  - Click <b>Add anchor peer</b>.
+  - If all went well, your channel Anchor peers should look like below:
+
+<br>
+<p align="center">
+  <img src="images/anchorPeer.png">
+</p>
+<br>
+
 ## Step 7. Deploy Insurance Smart Contract on the network
 
 * #### Install a smart contract
