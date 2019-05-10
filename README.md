@@ -526,7 +526,6 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   <p align="center">
     <img src="images/gifs/enrollAdmin.gif">
   </p>
-
 * #### Enroll shopApp-admin
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
   so that it looks something like this (your caName should be different than mine):
@@ -588,7 +587,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     msg: Successfully enrolled admin user repairShopApp-admin and imported it into the wallet
     ```
 
-* #### Enroll policeApp-admin
+* #### Enroll policeApp-admin (same process as shown in gif above)
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
   so that it looks something like this (your caName should be different than mine):
 
@@ -616,9 +615,9 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   
 ## Step 10. Run the application
 
-Clone the repository:
+Navigate to the root directory of the project:
   ```bash
-  git clone https://github.com/IBM/build-blockchain-insurance-app
+  cd build-blockchain-insurance-app
   ```
 
 Login using your [docker hub](https://hub.docker.com/) credentials.
@@ -663,6 +662,11 @@ Creating police-peer ...
 Creating web
 Creating police-peer ... done
 ```
+
+ <p align="center">
+    <img src="images/gifs/buildApp.gif">
+  </p>  
+  <br>
 
 **Wait for few minutes for application to install and instantiate the chaincode on network**
 
