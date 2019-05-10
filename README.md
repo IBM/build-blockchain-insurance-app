@@ -547,7 +547,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     authority settings, as shown in the picture below, and you can copy that endpoint URL into your `config.json` **caName**
     field. 
     <p align="center">
-      <img src="images/caSettings.png">
+      <img src="images/gifs/enrollShopAdmin.gif">
     </p>  
     <br>
 
