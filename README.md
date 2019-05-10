@@ -194,7 +194,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/org1-ca-register-identities.gif">
+  <img src="images/gifs/registerInsuranceAdminPeer.gif">
 </p>
 <br>
 
