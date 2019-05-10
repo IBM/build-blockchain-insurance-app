@@ -323,7 +323,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/orderer-org-msp-def.gif">
+  <img src="images/gifs/ordererMSP.gif">
 </p>
 <br>
 
@@ -338,7 +338,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/create-orderer.gif">
+  <img src="images/gifs/createOrdererNode.gif">
 </p>
 <br>
 
