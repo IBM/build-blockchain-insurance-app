@@ -411,7 +411,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 * #### Install a smart contract
 * Clone the repository:
   ```bash
-  git clone https://github.com/IBM/build-blockchain-insurance-app
+  git clone --single-branch --branch ibp2 https://github.com/IBM/build-blockchain-insurance-app
   ```
   - Click the <b>Smart contracts</b> tab to install the smart contract.
   - Click <b>Install smart contract</b> to upload the insurance smart contract package file.
