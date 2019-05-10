@@ -464,7 +464,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/register-app-admin.gif">
+  <img src="images/gifs/appAdmin.gif">
 </p>
 <br>
 
@@ -545,6 +545,9 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     ```bash
     msg: Successfully enrolled admin user insuranceApp-admin and imported it into the wallet
     ```
+  <p align="center">
+    <img src="images/gifs/enrollAdmin.gif">
+  </p>
 
 * #### Enroll shopApp-admin
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
