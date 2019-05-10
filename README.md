@@ -730,6 +730,10 @@ be able to see the contract_create block being added.
 </p>  
 <br>
 
+For additional steps on how to file more claims, and use the rest of the application, please go [here](./README-local.md).
+
+Congratulations! You've successfully connection your React app to the IBM Blockchain Platform! Now each time you submit transactions with the UI, they will be logged by the blockchain service. 
+
 ## Additional resources
 Following is a list of additional blockchain resources:
 * [Fundamentals of IBM Blockchain](https://www.ibm.com/blockchain/what-is-blockchain)
