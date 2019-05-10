@@ -511,6 +511,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     ```bash
     cd web/www/blockchain/
     ```
+  - Open the `config.json` file, and update the caName with the URL 
+    of the <b>insurance</b> certificate authority from your `ibpConnection.json` file. Save the file.  
   
   - Run the `enrollAdmin.js` script
     ```bash
