@@ -372,7 +372,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/create-channel.gif">
+  <img src="images/gifs/createChannel.gif">
 </p>
 <br>
 
@@ -386,7 +386,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/join-channel.gif">
+  <img src="images/gifs/joinChannel.gif">
 </p>
 <br>
 
