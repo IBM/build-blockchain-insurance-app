@@ -563,7 +563,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     msg: Successfully enrolled admin user shopApp-admin and imported it into the wallet
     ```
 
-* #### Enroll repairShopApp-admin
+* #### Enroll repairShopApp-admin (same process as shown in gif above)
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
   so that it looks something like this (your caName should be different than mine):
 
