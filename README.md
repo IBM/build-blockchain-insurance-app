@@ -225,7 +225,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/insuranceMSPP.gif">
+  <img src="images/gifs/insuranceMSP.gif">
 </p>
 <br>
 
@@ -264,7 +264,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/create-peer.gif">
+  <img src="images/gifs/addInsurancePeer.gif">
 </p>
 <br>
  
