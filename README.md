@@ -434,7 +434,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/instantiate-smart-contract.gif">
+  <img src="images/gifs/instantiateContract.gif">
 </p>
 <br>
 
@@ -449,7 +449,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/connect-with-sdk.gif">
+  <img src="images/gifs/downloadConnection.gif">
 </p>
 <br>
 
@@ -497,13 +497,11 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
  #### Update application connection
   - Copy the connection profile you downloaded into the `web/www/blockchain` directory.
-  - Name the connection profile you downloaded **ibpConnection.json**. This should automatically overwrite the 
-    file that is currently in that directory. 
+  - Copy and paste everything in the connection profile, and overwrite
+  the **ibpConnection.json**. 
 
-  - The **ibpConnection.json** file should look something like this: 
-
-   <p align="center">
-    <img src="images/ibpConnection.png">
+  <p align="center">
+    <img src="images/gifs/ibpConnection.gif">
   </p>
 
   - Update the [config.json](server/config.json) file with:
