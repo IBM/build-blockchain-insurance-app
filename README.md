@@ -526,7 +526,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 <p align="center">
   <img src="images/gifs/enrollAdmin.gif">
 </p>
-* #### Enroll shopApp-admin
+
+* Enroll shopApp-admin
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
   so that it looks something like this (your caName should be different than mine):
 
