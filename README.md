@@ -402,7 +402,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/addAnchorPeers.gif">
+  <img src="images/gifs/addAnchorPeer.gif">
 </p>
 <br>
 
