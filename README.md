@@ -421,7 +421,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/install-smart-contract.gif">
+  <img src="images/gifs/installSmartContract.gif">
 </p>
 <br>
 
