@@ -523,9 +523,9 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     ```bash
     msg: Successfully enrolled admin user insuranceApp-admin and imported it into the wallet
     ```
-  <p align="center">
-    <img src="images/gifs/enrollAdmin.gif">
-  </p>
+<p align="center">
+  <img src="images/gifs/enrollAdmin.gif">
+</p>
 * #### Enroll shopApp-admin
   - First, change the appAdmin, appAdminSecret, and caName properties in your `config.json` file, 
   so that it looks something like this (your caName should be different than mine):
@@ -545,10 +545,11 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     the Shop CA, and on the settings cog icon at the top of the page. That will take you to the certificate 
     authority settings, as shown in the picture below, and you can copy that endpoint URL into your `config.json` **caName**
     field. 
-    <p align="center">
-      <img src="images/gifs/enrollShopAdmin.gif">
-    </p>  
-    <br>
+
+<p align="center">
+  <img src="images/gifs/enrollShopAdmin.gif">
+</p>  
+<br>
 
   - Run the `enrollAdmin.js` script
     
@@ -723,8 +724,10 @@ The application will show you the total sum of your purchase. By clicking on “
 At this point, you should be able to go into your IBM Blockchain Platform console, click on the channels, and then 
 be able to see the contract_create block being added. 
 
-![Blocks](images/blocks.png)
-
+<p align="center">
+  <img src="images/gifs/runAppIBP.gif">
+</p>  
+<br>
 
 ## Additional resources
 Following is a list of additional blockchain resources:
