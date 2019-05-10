@@ -98,35 +98,21 @@ find the service in the `Catalog`. Note that the gif shows creating a free clust
   - Choose Default worker pool: <b>1.12.7 (Stable, Default)</b>
   - Choose Master service endpoint: <b>Both private & public endpoints</b>
 
-<br>
-<p align="center">
-  <img src="images/kubeLocation.png">
-</p>
-<br>
 
   - Choose Flavor <b>32 Cores 32GB RAM, Ubuntu 18</b>
-
-<br>
-<p align="center">
-  <img src="images/kube32.png">
-</p>
-<br>
-
   - Choose Encrypt local disk <b>Yes</b>
   - Choose Worker nodes <b>3</b>
-
-
-<br>
-<p align="center">
-  <img src="images/kubeWorker.png">
-</p>
-<br>
-
   - Click on <b>create cluster</b>
 
 <b>The cluster takes around 15-20
 minutes to provision, so please be patient!</b>
 
+
+<br>
+<p align="center">
+  <img src="images/gifs/createCluster.gif">
+</p>
+<br>
 
 * Create the [IBM Blockchain Platform V2 Beta](https://console.bluemix.net/catalog/services/blockchain/) service on the IBM Cloud.  You can find the service in the `Catalog`, and give a name.
 
