@@ -351,7 +351,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="images/gifs/add-org-orderer.gif">
+  <img src="images/gifs/addConsortium.gif">
 </p>
 <br>
 
