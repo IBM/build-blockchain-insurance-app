@@ -398,8 +398,15 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 * #### Add anchor peers to the channel
   - In order to communicate between organizations, we need to enroll anchor peers.
-  - From the channels tab, click on `channel details`. Scroll all the way down until you 
-    see `Anchor peers`.
+  - From the channels tab, click on the channel you have created, `mychannel`.
+  - From the channel overview page, click on `channel details`. Scroll all the way down until you see `Anchor peers`.
+  - <br>
+    <p align="center">
+      <img src="images/channelDetails.png">
+    </p>
+    <br>
+
+
   - Click `Add anchor peer` and add the Insurance, Police, Repair Shop,
     and Shop peers.
   - Select which peers you want to join the channel, click `Insurance Peer`, `Shop Peer`, `Repair Shop Peer`, and `Police Peer`.
