@@ -78,7 +78,7 @@ Kubernetes cluster (and only two organizations), so if you want to try that one 
 ## Step 1. Create IBM Cloud services
 
 * Create the [IBM Cloud Kubernetes Service](https://cloud.ibm.com/catalog/infrastructure/containers-kubernetes).  You can 
-find the service in the `Catalog`. Note that the gif shows creating a free cluster, <b>but for this code pattern, we need to use the 32CPU, 32GB RAM cluster.</b>.
+find the service in the `Catalog`. Note that <b>for this code pattern, we need to use the 32CPU, 32GB RAM cluster.</b>
 
 * Once you reach the <b> create a new cluster page </b> you will need to do the following:
   - Choose <b>standard</b> cluster type
