@@ -103,14 +103,6 @@ minutes to provision, so please be patient!</b>
 </p>
 <br>
 
-* Create the [IBM Blockchain Platform V2 Beta](https://console.bluemix.net/catalog/services/blockchain/) service on the IBM Cloud.  You can find the service in the `Catalog`, and give a name.
-
-<br>
-<p align="center">
-  <img src="images/gifs/create-ibm-blockchain-2-service.gif">
-</p>
-<br>
-
 * After your kubernetes cluster is up and running, you can deploy your IBM Blockchain Platform V2 Beta on the cluster.  The service walks through few steps and finds your cluster on the IBM Cloud to deploy the service on.
 
 <br>
