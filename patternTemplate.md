@@ -25,7 +25,7 @@ Build a web-based blockchain insurance app using IBM Blockchain Platform and IBM
 
 ### Other URLs
 
-* Demo URL - https://www.youtube.com/watch?v=WeD6vYOLjes
+* Demo URL - to be announced soon.
 
 # Summary
 
@@ -60,14 +60,18 @@ Service, and the operator installs and instantiates the smart contract on the ne
 
 # Instructions
 
-> Provide the high-level technical steps that a developer will complete in the pattern (the details for these steps will appear in the readme file). For example, if the developer needs to install and configure a program, step one might be "Download the code from GitHub" and step 2 might be "Configure the code on your local drive." You would provide the full technical details on how to configure the code in the readme file.
+> Find the detailed steps for this pattern in the [readme file](https://github.com/IBM/build-blockchain-insurance-app#steps). The steps will show you how to:
 
-> Find the detailed steps for this pattern in the [readme file](<URL for the README.md file in your GitHub repo>). The steps will show you how to:
-
-1. Step 1
-2. Step 2
-3. Step 3
-4. Step 4
+Create IBM Cloud services
+Build a network - Certificate Authority
+Build a network - Create MSP Definitions
+Build a network - Create Peers
+Build a network - Create Orderer
+Build a network - Create and Join Channel
+Deploy Insurance Smart Contract on the network
+Connect application to the network
+Enroll App Admin Identities
+Run the application
 
 # Components and services
 
