@@ -1,0 +1,92 @@
+{
+  "name": "mychannel1",
+  "description": "Network on IBP v2",
+  "version": "1.0.0",
+  "client": {
+      "organization": "insurance"
+  },
+  "organizations": {
+      "insurance": {
+          "mspid": "insurance",
+          "peers": [
+              "124b79efa8f544fc940408394edac7b5-peer9dce22.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051"
+          ],
+          "certificateAuthorities": [
+              "124b79efa8f544fc940408394edac7b5-ca081cbf.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7054"
+          ]
+      },
+      "policemsp": {
+          "mspid": "policemsp",
+          "peers": [
+              "124b79efa8f544fc940408394edac7b5-peer3e4cea.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051"
+          ]
+      },
+      "repairmsp": {
+          "mspid": "repairmsp",
+          "peers": [
+              "124b79efa8f544fc940408394edac7b5-peer6671ce.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051"
+          ]
+      },
+      "shopmsp": {
+          "mspid": "shopmsp",
+          "peers": [
+              "124b79efa8f544fc940408394edac7b5-peerbe9312.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051"
+          ]
+      }
+  },
+  "orderers": {
+      "124b79efa8f544fc940408394edac7b5-orderer6026d3.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7050": {
+          "url": "grpcs://124b79efa8f544fc940408394edac7b5-orderer6026d3.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7050",
+          "tlsCACerts": {
+              "pem": "-----BEGIN CERTIFICATE-----\nMIICETCCAbigAwIBAgIUJDgrTnmSxLf+QGc1OAUFXLgXq+UwCgYIKoZIzj0EAwIw\nXTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMQ4wDAYDVQQDEwV0bHNjYTAe\nFw0xOTA0MDkxODI1MDBaFw0zNDA0MDUxODI1MDBaMF0xCzAJBgNVBAYTAlVTMRcw\nFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIxDzAN\nBgNVBAsTBkZhYnJpYzEOMAwGA1UEAxMFdGxzY2EwWTATBgcqhkjOPQIBBggqhkjO\nPQMBBwNCAARH0dqqUrUVUXxpdpXaXL4mZqM/R7xkrKg04q7iyndVxYBPUVRxwLFX\nOjkjDs/meUqnsVq4Drp2PZbxSrO4j+xwo1YwVDAOBgNVHQ8BAf8EBAMCAQYwEgYD\nVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUzUa0w//KwOyybsJ2paLMOdaXFOkw\nDwYDVR0RBAgwBocECkqoVzAKBggqhkjOPQQDAgNHADBEAiBSt3IozDErNm53newa\ngojKZa0K7YcTysMiceKG8dDWRgIgFBdXjM57W6pufo+EgF7JXKBMANxGlVdVlfRy\nRZPbGKQ=\n-----END CERTIFICATE-----\n"
+          }
+      }
+  },
+  "peers": {
+      "124b79efa8f544fc940408394edac7b5-peer9dce22.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051": {
+          "url": "grpcs://124b79efa8f544fc940408394edac7b5-peer9dce22.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051",
+          "tlsCACerts": {
+              "pem": "-----BEGIN CERTIFICATE-----\nMIICETCCAbigAwIBAgIUOGIl/yGhFEQFKuOYyB4/OSvAWaAwCgYIKoZIzj0EAwIw\nXTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMQ4wDAYDVQQDEwV0bHNjYTAe\nFw0xOTA0MDkwNjM0MDBaFw0zNDA0MDUwNjM0MDBaMF0xCzAJBgNVBAYTAlVTMRcw\nFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIxDzAN\nBgNVBAsTBkZhYnJpYzEOMAwGA1UEAxMFdGxzY2EwWTATBgcqhkjOPQIBBggqhkjO\nPQMBBwNCAATSaz1d4kvkHTTyu2sJ9j3rnjHfY3zn06VbYysAkYgcET4KN7L0QnLK\njvkdlSNVXPKbkmh09oMmbjN/6mzJZia5o1YwVDAOBgNVHQ8BAf8EBAMCAQYwEgYD\nVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUlHzl+IJ3/HrRz6o72z11MconBqsw\nDwYDVR0RBAgwBocECkqoVzAKBggqhkjOPQQDAgNHADBEAiAsCsuciDVPWcq6yb1f\njQAqDQE63e0jDIawoKB6PkaOsAIgZo3hr+DBlaRt0x45D+zQgaYDo7GxfdgOCEIK\nmCk4CZk=\n-----END CERTIFICATE-----\n"
+          },
+          "grpcOptions": {
+              "ssl-target-name-override": "124b79efa8f544fc940408394edac7b5-peer9dce22.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud"
+          }
+      },
+      "124b79efa8f544fc940408394edac7b5-peer3e4cea.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051": {
+          "url": "grpcs://124b79efa8f544fc940408394edac7b5-peer3e4cea.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051",
+          "tlsCACerts": {
+              "pem": "-----BEGIN CERTIFICATE-----\nMIICETCCAbigAwIBAgIUYlNAYWMHnrymcPw9N7KvORxMwkIwCgYIKoZIzj0EAwIw\nXTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMQ4wDAYDVQQDEwV0bHNjYTAe\nFw0xOTA0MDkyMjUxMDBaFw0zNDA0MDUyMjUxMDBaMF0xCzAJBgNVBAYTAlVTMRcw\nFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIxDzAN\nBgNVBAsTBkZhYnJpYzEOMAwGA1UEAxMFdGxzY2EwWTATBgcqhkjOPQIBBggqhkjO\nPQMBBwNCAAS3pN0VbV7kkcKiZGWuzqB80YOLzGd3w+00YsbkJARQifoNnukgHh64\nEnLAskMDUqW+KK6kTwKn4Ca2uzRVnPmCo1YwVDAOBgNVHQ8BAf8EBAMCAQYwEgYD\nVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQU5qjkY3I/vOY8cBzYudUsrcKBGUEw\nDwYDVR0RBAgwBocECkqoVzAKBggqhkjOPQQDAgNHADBEAiBOmQ+C09XX90NAFWwg\nX+5P8IjAujQ66qIA3+s5k25/WQIgOX0JSRpfilwpofCa18Y5y1/qHGfH/RbvHP5X\n8ugo0eE=\n-----END CERTIFICATE-----\n"
+          },
+          "grpcOptions": {
+              "ssl-target-name-override": "124b79efa8f544fc940408394edac7b5-peer3e4cea.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud"
+          }
+      },
+      "124b79efa8f544fc940408394edac7b5-peer6671ce.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051": {
+          "url": "grpcs://124b79efa8f544fc940408394edac7b5-peer6671ce.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051",
+          "tlsCACerts": {
+              "pem": "-----BEGIN CERTIFICATE-----\nMIICETCCAbigAwIBAgIUEIC+lrjuQm0et5tokfLH4z5M5Z8wCgYIKoZIzj0EAwIw\nXTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMQ4wDAYDVQQDEwV0bHNjYTAe\nFw0xOTA0MDkyMjUxMDBaFw0zNDA0MDUyMjUxMDBaMF0xCzAJBgNVBAYTAlVTMRcw\nFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIxDzAN\nBgNVBAsTBkZhYnJpYzEOMAwGA1UEAxMFdGxzY2EwWTATBgcqhkjOPQIBBggqhkjO\nPQMBBwNCAARxM6vvNyu8EEoQcFZFsgVDf0Z0pTWUS5bsZpP4NrVyxZYsvgO+0fYT\nPPq7nkNW0DPOgvuTExnzMXOI3eFQ/WPNo1YwVDAOBgNVHQ8BAf8EBAMCAQYwEgYD\nVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQU9d/3GVgs20hUyzgF/C++5A2upIMw\nDwYDVR0RBAgwBocECkqoYzAKBggqhkjOPQQDAgNHADBEAiA8vbo9bW9sWKwOGWgm\nJU8RUI/O+NluKo9NSGZFghbBAQIgTQKsTrIWDPjwcEhEghqUVqYNQkfMIizfBoxl\nBUH0vrg=\n-----END CERTIFICATE-----\n"
+          },
+          "grpcOptions": {
+              "ssl-target-name-override": "124b79efa8f544fc940408394edac7b5-peer6671ce.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud"
+          }
+      },
+      "124b79efa8f544fc940408394edac7b5-peerbe9312.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051": {
+          "url": "grpcs://124b79efa8f544fc940408394edac7b5-peerbe9312.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7051",
+          "tlsCACerts": {
+              "pem": "-----BEGIN CERTIFICATE-----\nMIICEjCCAbigAwIBAgIUVjur9Xiwu5Gs2z3QcNYnYcL/WPwwCgYIKoZIzj0EAwIw\nXTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMQ4wDAYDVQQDEwV0bHNjYTAe\nFw0xOTA0MDkwNjMwMDBaFw0zNDA0MDUwNjMwMDBaMF0xCzAJBgNVBAYTAlVTMRcw\nFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEUMBIGA1UEChMLSHlwZXJsZWRnZXIxDzAN\nBgNVBAsTBkZhYnJpYzEOMAwGA1UEAxMFdGxzY2EwWTATBgcqhkjOPQIBBggqhkjO\nPQMBBwNCAASjcmELZLvRMNcvGkxU+uy5q5Ue8MG5yahmmbYSafAVr2CEme2KqxrM\nAkd4gOQVLCfo8tldT7Nqj62+0dr4r0cjo1YwVDAOBgNVHQ8BAf8EBAMCAQYwEgYD\nVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQU98srzGbjfCvOrlhRJ53X0RAiDwIw\nDwYDVR0RBAgwBocECkqoYzAKBggqhkjOPQQDAgNIADBFAiEAuXqOiXo94k7gbIPO\nQT7kyp9Kn+aZF38J0DCbH4C97fkCIDVs6nTN8OE2NLl9sZqVuUp8PfvqtStreFPJ\nQ3azVwKj\n-----END CERTIFICATE-----\n"
+          },
+          "grpcOptions": {
+              "ssl-target-name-override": "124b79efa8f544fc940408394edac7b5-peerbe9312.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud"
+          }
+      }
+  },
+  "certificateAuthorities": {
+      "124b79efa8f544fc940408394edac7b5-ca081cbf.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7054": {
+          "url": "https://124b79efa8f544fc940408394edac7b5-ca081cbf.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7054",
+          "caName": "ca",
+          "tlsCACerts": {
+              "pem": "-----BEGIN CERTIFICATE-----\r\nMIIDjTCCAvagAwIBAgIJc+JK0J0cpKQjMA0GCSqGSIb3DQEBBQUAMIHMMW8wbQYD\r\nVQQDE2YxMjRiNzllZmE4ZjU0NGZjOTQwNDA4Mzk0ZWRhYzdiNS1jYTA4MWNiZi5o\r\nb3JlYS1ibG9ja2NoYWluLTMyeDMyeHAudXMtc291dGguY29udGFpbmVycy5hcHBk\r\nb21haW4uY2xvdWQxCzAJBgNVBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGlu\r\nYTEQMA4GA1UEBxMHUmFsZWlnaDEMMAoGA1UEChMDSUJNMRMwEQYDVQQLEwpCbG9j\r\na2NoYWluMB4XDTE5MDQwOTA2MzYyMFoXDTIwMDQwODA2MzYyMFowgcwxbzBtBgNV\r\nBAMTZjEyNGI3OWVmYThmNTQ0ZmM5NDA0MDgzOTRlZGFjN2I1LWNhMDgxY2JmLmhv\r\ncmVhLWJsb2NrY2hhaW4tMzJ4MzJ4cC51cy1zb3V0aC5jb250YWluZXJzLmFwcGRv\r\nbWFpbi5jbG91ZDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5h\r\nMRAwDgYDVQQHEwdSYWxlaWdoMQwwCgYDVQQKEwNJQk0xEzARBgNVBAsTCkJsb2Nr\r\nY2hhaW4wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKehzJ1ms1D8wSbZx1Pr\r\ne24MTWchxcpODWmD5inpBZqLess2+NL861Z7fQA5ooViGpvN/jqh3tfqv6KV1wTD\r\n6/55nS+BxxoAEWzi6bl1lcGopOgH6eJvM8d2ntDH4brGA9Oj9A0nwMS0/jc7Fw53\r\nhiluC83rIPNHuBjyxiLPvDY5AgMBAAGjdTBzMHEGA1UdEQRqMGiCZjEyNGI3OWVm\r\nYThmNTQ0ZmM5NDA0MDgzOTRlZGFjN2I1LWNhMDgxY2JmLmhvcmVhLWJsb2NrY2hh\r\naW4tMzJ4MzJ4cC51cy1zb3V0aC5jb250YWluZXJzLmFwcGRvbWFpbi5jbG91ZDAN\r\nBgkqhkiG9w0BAQUFAAOBgQCP4XFBgVzx8XnjAvIEN8Gos6QEXAqdyGbzEZdTrbfd\r\ndyzYLX/4Qi7xwjZZJWwotmFC1R5vBFJohOqSj4Mj+Tr+OevqbxmQPqtPgP6xaLR8\r\nNa+hfHqJ2bSnzYq7wJX+QP1FL1ZdAK2eCP5nSo0oAwcnHZ7s5eT7Up9c7ckJAAY7\r\nxQ==\r\n-----END CERTIFICATE-----\r\n"
+          }
+      }
+  }
+}

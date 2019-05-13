@@ -8,11 +8,10 @@ ENV DOCKER_CCENV_IMAGE hyperledger/fabric-ccenv:latest
 RUN mkdir /app
 COPY . /app
 WORKDIR /app
-RUN apt update && apt install -y build-essential \
-      && npm i && npm i --only=dev \
-      && npm run build \
-      && npm prune \
-      && apt remove -y build-essential
+
+RUN npm i && npm i --only=dev \
+&& npm run build \
+&& npm prune
 
 EXPOSE 3000
 CMD ["npm", "run", "serve"]

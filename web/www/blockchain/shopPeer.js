@@ -1,9 +1,14 @@
 'use strict';
 
 import config from './config';
-import { wrapError } from './utils';
+import { wrapError, marshalArgs } from './utils';
 import { shopClient as client, isReady } from './setup';
 import uuidV4 from 'uuid/v4';
+
+import network from './invoke';
+
+import * as util from 'util' // has no default export
+
 
 export async function getContractTypes(shopType) {
   if (!isReady()) {
@@ -23,7 +28,9 @@ export async function createContract(contract) {
     return;
   }
   try {
+    console.log(`contract before ojbect.assign: ${contract}`)
     let c = Object.assign({}, contract, { uuid: uuidV4() });
+    console.log(`contract after object.assign: ${c}`)
     const loginInfo = await invoke('contract_create', c);
     if (!loginInfo
       ^ !!(loginInfo && loginInfo.username && loginInfo.password)) {
@@ -91,12 +98,38 @@ export const addListener = client.addListener.bind(client);
 export const prependListener = client.prependListener.bind(client);
 export const removeListener = client.removeListener.bind(client);
 
-function invoke(fcn, ...args) {
+//identity to use for submitting transactions to smart contract
+const peerType = 'shopApp-admin'
+let isQuery = false;
+let isCloud = true;
+
+async function invoke(fcn, ...args) {
+
+  isQuery = false;
+  
+  console.log(`args in shopPeer invoke: ${util.inspect(...args)}`)
+  console.log(`func in shopPeer invoke: ${util.inspect(fcn)}`)
+
+  if (isCloud) {
+    await network.invokeCC(isQuery, peerType, fcn, ...args);
+  }
+
   return client.invoke(
     config.chaincodeId, config.chaincodeVersion, fcn, ...args);
+
 }
 
-function query(fcn, ...args) {
+async function query(fcn, ...args) {
+
+  isQuery = true;
+
+  console.log(`args in shopPeer query: ${util.inspect(...args)}`)
+  console.log(`func in shopPeer query: ${util.inspect(fcn)}`)
+
+  if (isCloud) {
+    await network.invokeCC(isQuery, peerType, fcn, ...args);
+  }
+
   return client.query(
     config.chaincodeId, config.chaincodeVersion, fcn, ...args);
 }

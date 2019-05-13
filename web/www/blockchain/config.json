@@ -1,0 +1,9 @@
+{
+  "connection_file": "ibpConnection.json",
+  "appAdmin": "insuranceApp-admin",
+  "appAdminSecret": "insuranceApp-adminpw",
+  "orgMSPID": "insurancemsp",
+  "caName": "https://124b79efa8f544fc940408394edac7b5-ca081cbf.horea-blockchain-32x32xp.us-south.containers.appdomain.cloud:7054",
+  "userName": "insuranceUser",
+  "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+}
