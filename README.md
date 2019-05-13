@@ -2,7 +2,11 @@
 
 # Build Blockchain Insurance Application
 
-This project showcases the use of blockchain in insurance domain for claim processing. In this application, we have four participants, namely insurance, police, repair shop and shop peer. Insurance peer is the insurance company providing the insurance for the products and it is responsible for processing the claims. Police peer is responsible for verifying the theft claims. Repair shop peer is responsible for repairs of the product while shop peer sells the products to consumer.
+This project showcases the use of blockchain in insurance domain for claim processing. In this application, we have four participants, namely insurance, police, repair shop and the shop. Furthermore,
+each participant will own its own peer node. The insurance peer is the insurance company providing the insurance for the products and it is responsible for processing the claims. Police peer is responsible for verifying the theft claims. Repair shop peer is responsible for repairs of the product while shop peer sells the products to consumer. The value of running this network on the IBM Blockchain Platform is that 
+you can easily customize the network infrastructure as needed, whether 
+that is the location of the nodes, the CPU and RAM of the hardware, the
+endorsement policy needed to reach consensus, or adding new organizations and members to the network.  
 
 *Note:* This code pattern can either be run locally, or connected to the IBM Blockchain Platform. <b>If you only care 
 about running this pattern locally, please find the local instructions [here](./README-local.md).</b>
@@ -45,13 +49,15 @@ Service, and the operator installs and instantiates the smart contract on the ne
 ## Prerequisites
 We find that Blockchain can be finicky when it comes to installing Node. We want to share this [StackOverflow response](https://stackoverflow.com/questions/49744276/error-cannot-find-module-api-hyperledger-composer) - because many times the errors you see with Compose are derived in having installed either the wrong Node version or took an approach that is not supported by Compose:
 
+* [IBM Cloud account](https://cloud.ibm.com/registration)
 * [Docker](https://www.docker.com/products) - latest
 * [Docker Compose](https://docs.docker.com/compose/overview/) - latest
 * [NPM](https://www.npmjs.com/get-npm) - latest
 * [nvm]() - latest
-* [Node.js](https://nodejs.org/en/download/) - latest
+* [Node.js](https://nodejs.org/en/download/) - Node v8.9.x
 * [Git client](https://git-scm.com/downloads) - latest
 * **[Python](https://www.python.org/downloads/) - 2.7.x**
+* [React](https://reactjs.org/) - 15.6.1
 
 # Steps
 
