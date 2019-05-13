@@ -62,16 +62,16 @@ Service, and the operator installs and instantiates the smart contract on the ne
 
 > Find the detailed steps for this pattern in the [readme file](https://github.com/IBM/build-blockchain-insurance-app#steps). The steps will show you how to:
 
-Create IBM Cloud services
-Build a network - Certificate Authority
-Build a network - Create MSP Definitions
-Build a network - Create Peers
-Build a network - Create Orderer
-Build a network - Create and Join Channel
-Deploy Insurance Smart Contract on the network
-Connect application to the network
-Enroll App Admin Identities
-Run the application
+1. Create IBM Cloud services
+2. Build a network - Certificate Authority
+3. Build a network - Create MSP Definitions
+4. Build a network - Create Peers
+5. Build a network - Create Orderer
+6. Build a network - Create and Join Channel
+7. Deploy Insurance Smart Contract on the network
+8. Connect application to the network
+9. Enroll App Admin Identities
+10. Run the application
 
 # Components and services
 
