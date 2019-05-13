@@ -72,6 +72,7 @@ Service, and the operator installs and instantiates the smart contract on the ne
 # Components and services
 
 [IBM Cloud Kubernetes Service](https://cloud.ibm.com/catalog/infrastructure/containers-kubernetes)
+
 [Blockchain Platform 2.0](https://cloud.ibm.com/catalog/services/blockchain-platform-20)
 
 
