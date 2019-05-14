@@ -46,6 +46,10 @@ Service, and the operator installs and instantiates the smart contract on the ne
 * [React](https://reactjs.org/) A declarative, efficient, and flexible JavaScript library for building user interfaces.
 * [Docker](https://www.docker.com/) Docker is a computer program that performs operating-system-level virtualization. It was first released in 2013 and is developed by Docker, Inc.
 
+# Watch the Video - Multiple Organization and Multiple Peer App Demo #1 - Intro (Part 1)
+
+[![](images/part1.png)](https://www.youtube.com/watch?v=Lr3EFKayP0o&t=30s)
+
 ## Prerequisites
 We find that Blockchain can be finicky when it comes to installing Node. We want to share this [StackOverflow response](https://stackoverflow.com/questions/49744276/error-cannot-find-module-api-hyperledger-composer) - because many times the errors you see with Compose are derived in having installed either the wrong Node version or took an approach that is not supported by Compose:
 
