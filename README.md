@@ -99,7 +99,7 @@ find the service in the `Catalog`. Note that <b>for this code pattern, we need t
   - Choose Flavor <b>32 Cores 32GB RAM, Ubuntu 18</b>
   - Choose Encrypt local disk <b>Yes</b>
   - Choose Worker nodes <b>3</b>
-  - Click on <b>create cluster</b>
+  - Click on <b>create cluster. </b>
 <b>The cluster takes around 15-20
 minutes to provision, so please be patient!</b>
 
