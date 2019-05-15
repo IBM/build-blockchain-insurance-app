@@ -48,7 +48,15 @@ Service, and the operator installs and instantiates the smart contract on the ne
 
 # Watch the Video - Multiple Organization and Multiple Peer App Demo #1 - Intro 
 
-[![](images/part1.png)](https://www.youtube.com/watch?v=Lr3EFKayP0o&t=30s)
+[![](images/part1.png)](https://www.youtube.com/watch?v=Lr3EFKayP0o)
+
+# Watch the Video - IBM Blockchain Tutorial: Multiple Organization and Multiple Peer App Demo #2 - Build Nodes 
+
+[![](images/part2.png)](https://www.youtube.com/watch?v=wi6i28vRigs)
+
+# Watch the Video - Multiple Organization and Multiple Peer App Demo #1 - Intro 
+
+[![](images/part3.png)](https://www.youtube.com/watch?v=3dRckqZvFqw)
 
 ## Prerequisites
 We find that Blockchain can be finicky when it comes to installing Node. We want to share this [StackOverflow response](https://stackoverflow.com/questions/49744276/error-cannot-find-module-api-hyperledger-composer) - because many times the errors you see with Compose are derived in having installed either the wrong Node version or took an approach that is not supported by Compose:
