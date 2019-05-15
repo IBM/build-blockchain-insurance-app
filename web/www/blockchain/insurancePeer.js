@@ -1,9 +1,13 @@
 'use strict';
 
 import config from './config';
-import { wrapError } from './utils';
+import { wrapError, marshalArgs } from './utils';
 import { insuranceClient as client, isReady } from './setup';
 import uuidV4 from 'uuid/v4';
+
+import network from './invoke';
+
+import * as util from 'util' // has no default export
 
 export async function getContractTypes() {
   if (!isReady()) {
@@ -97,8 +101,14 @@ export async function fileClaim(claim) {
     return;
   }
   try {
+    console.log(`claim: ${util.inspect(claim)}`)
+
     const c = Object.assign({}, claim, { uuid: uuidV4() });
+
+    console.log(`after assigning uuid in fileClaim, c: ${util.inspect(c)}`)
+
     const successResult = await invoke('claim_file', c);
+    console.log(`successResult, after calling invoke claim_file from insurancePeer.js ${util.inspect(successResult)}`)
     if (successResult) {
       throw new Error(successResult);
     }
@@ -160,12 +170,36 @@ export const addListener = client.addListener.bind(client);
 export const prependListener = client.prependListener.bind(client);
 export const removeListener = client.removeListener.bind(client);
 
-function invoke(fcn, ...args) {
+//identity to use for submitting transactions to smart contract
+const peerType = 'insuranceApp-admin'
+let isQuery = false;
+let isCloud = true;
+
+async function invoke(fcn, ...args) {
+
+  isQuery = false;
+
+  console.log(`args in insurancePeer invoke: ${util.inspect(...args)}`)
+  console.log(`func in insurancePeer invoke: ${util.inspect(fcn)}`)
+
+  if (isCloud) {
+    await network.invokeCC(isQuery, peerType, fcn, ...args);
+  }
+  
   return client.invoke(
     config.chaincodeId, config.chaincodeVersion, fcn, ...args);
 }
 
-function query(fcn, ...args) {
+async function query(fcn, ...args) {
+
+  isQuery = true;
+  console.log(`args in insurancePeer query: ${util.inspect(...args)}`)
+  console.log(`func in insurancePeer query: ${util.inspect(fcn)}`)
+
+  if (isCloud) {
+    await network.invokeCC(isQuery, peerType, fcn, ...args);
+  }
+
   return client.query(
     config.chaincodeId, config.chaincodeVersion, fcn, ...args);
 }
