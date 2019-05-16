@@ -25,7 +25,7 @@ Build a web-based blockchain insurance app using IBM Blockchain Platform and IBM
 
 ### Other URLs
 
-* Demo URL - to be announced soon.
+* Demo URL - https://www.youtube.com/watch?v=Lr3EFKayP0o
 
 # Summary
 
