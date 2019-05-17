@@ -25,7 +25,7 @@ client application.
 * View transaction details on our channel from IBM Blockchain Platform.
 
 ## Application Workflow Diagram
-![Workflow](images/app-architecture2.0.png)
+![Workflow](images/app-arch.png)
 
 1. The blockchain operator creates a IBM Kubernetes Service cluster (<b>32CPU, 32RAM, 3 workers recommended</b>) and an IBM Blockchain 
 Platform 2.0 service.
