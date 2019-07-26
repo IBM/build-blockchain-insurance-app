@@ -266,7 +266,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - On the <b>Nodes</b> page, click <b>Add peer</b>.
   - Click <b>IBM Cloud</b> under Create a new peer and <b>Next</b>.
   - Give your peer a <b>Display name</b> of `Repair Shop Peer`.
-  - On the next screen, select `Repair Shop CA` as your <b>Certificate Authority</b>. Then, give the <b>Enroll ID</b> and <b>Enroll secret</b> for the peer identity that you created for your peer, `repairShopPeer`, and `repairShopPeerpw`. Then, select the <b>Administrator Certificate (from MSP)</b>, `Shop MSP`, from the drop-down list and click <b>Next</b>.
+  - On the next screen, select `Repair Shop CA` as your <b>Certificate Authority</b>. Then, give the <b>Enroll ID</b> and <b>Enroll secret</b> for the peer identity that you created for your peer, `repairShopPeer`, and `repairShopPeerpw`. Then, select the <b>Administrator Certificate (from MSP)</b>, `Repair Shop MSP`, from the drop-down list and click <b>Next</b>.
   - Give the <b>TLS Enroll ID</b>, `admin`, and <b>TLS Enroll secret</b>, `adminpw`, the same values are the Enroll ID and Enroll secret that you gave when creating the CA.  Leave the <b>TLS CSR hostname</b> blank.
   - The last side panel will ask you to <b>Associate an identity</b> and make it the admin of your peer. Select your peer admin identity `Repair Shop Admin`.
   - Review the summary and click <b>Submit</b>.
@@ -275,7 +275,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - On the <b>Nodes</b> page, click <b>Add peer</b>.
   - Click <b>IBM Cloud</b> under Create a new peer and <b>Next</b>.
   - Give your peer a <b>Display name</b> of `Police Peer`.
-  - On the next screen, select `Police CA` as your <b>Certificate Authority</b>. Then, give the <b>Enroll ID</b> and <b>Enroll secret</b> for the peer identity that you created for your peer, `policePeer`, and `policePeerpw`. Then, select the <b>Administrator Certificate (from MSP)</b>, `Shop MSP`, from the drop-down list and click <b>Next</b>.
+  - On the next screen, select `Police CA` as your <b>Certificate Authority</b>. Then, give the <b>Enroll ID</b> and <b>Enroll secret</b> for the peer identity that you created for your peer, `policePeer`, and `policePeerpw`. Then, select the <b>Administrator Certificate (from MSP)</b>, `Police MSP`, from the drop-down list and click <b>Next</b>.
   - Give the <b>TLS Enroll ID</b>, `admin`, and <b>TLS Enroll secret</b>, `adminpw`, the same values are the Enroll ID and Enroll secret that you gave when creating the CA.  Leave the <b>TLS CSR hostname</b> blank.
   - The last side panel will ask you to <b>Associate an identity</b> and make it the admin of your peer. Select your peer admin identity `Police Admin`.
   - Review the summary and click <b>Submit</b>.
@@ -401,6 +401,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Click the <b>Smart contracts</b> tab to install the smart contract.
   - Click <b>Install smart contract</b> to upload the insurance smart contract package file.
   - Click on <b>Add file</b> and find your packaged smart contract. It is the file in the `build-blockchain-insurance-app/chaincodePackage` directory. 
+  - Select all peers - we need to install the contract on each peer.
   - Once the contract is uploaded, click <b>Install</b>.
 
 
