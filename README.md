@@ -443,7 +443,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certificate Authorities</b>, choose your <b>Insurance CA</b>.
   - Click on <b>Register user</b>.
   - Give an <b>Enroll ID</b> and <b>Enroll Secret</b> to administer your application users, `insuranceApp-admin` and `insuranceApp-adminpw`.
-  - Choose `client` as <b>Type</b> and any organization for affiliation.  We can pick `org1` to be consistent.
+  - Choose `client` as <b>Type</b>.
+  - You can leave the <b>Use root affiliation</b> box checked.
   - You can leave the <b>Maximum enrollments</b> blank.
   - Under <b>Attributes</b>, click on <b>Add attribute</b>.  Give attribute as `hf.Registrar.Roles` = `*`.  This will allow this identity to act as registrar and issues identities for our app.  Click <b>Add-attribute</b>.
   - Click <b>Register</b>.
@@ -458,25 +459,28 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certificate Authorities</b>, choose your <b>Shop CA</b>.
   - Click on <b>Register user</b>.
   - Give an <b>Enroll ID</b> and <b>Enroll Secret</b> to administer your application users, `shopApp-admin` and `shopApp-adminpw`.
-  - Choose `client` as <b>Type</b> and any organization for affiliation.  We can pick `org1` to be consistent.
+  - Choose `client` as <b>Type</b>.
+  - You can leave the <b>Use root affiliation</b> box checked.
   - You can leave the <b>Maximum enrollments</b> blank.
   - Under <b>Attributes</b>, click on <b>Add attribute</b>.  Give attribute as `hf.Registrar.Roles` = `*`.  This will allow this identity to act as registrar and issues identities for our app.  Click <b>Add-attribute</b>.
   - Click <b>Register</b>.
 
 * #### Create repair shop application admin (same process as shown above in the gif)
-  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certificate Authorities</b>, choose your <b>Shop CA</b>.
+  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certificate Authorities</b>, choose your <b>Repair Shop CA</b>.
   - Click on <b>Register user</b>.
   - Give an <b>Enroll ID</b> and <b>Enroll Secret</b> to administer your application users, `repairShopApp-admin` and `repairShopApp-adminpw`.
-  - Choose `client` as <b>Type</b> and any organization for affiliation.  We can pick `org1` to be consistent.
+  - Choose `client` as <b>Type</b>.
+  - You can leave the <b>Use root affiliation</b> box checked.
   - You can leave the <b>Maximum enrollments</b> blank.
   - Under <b>Attributes</b>, click on <b>Add attribute</b>.  Give attribute as `hf.Registrar.Roles` = `*`.  This will allow this identity to act as registrar and issues identities for our app.  Click <b>Add-attribute</b>.
   - Click <b>Register</b>.
 
 * #### Create police application admin (same process as shown above in the gif)
-  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certificate Authorities</b>, choose your <b>Shop CA</b>.
+  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certificate Authorities</b>, choose your <b>Police CA</b>.
   - Click on <b>Register user</b>.
   - Give an <b>Enroll ID</b> and <b>Enroll Secret</b> to administer your application users, `policeApp-admin` and `policeApp-adminpw`.
-  - Choose `client` as <b>Type</b> and any organization for affiliation.  We can pick `org1` to be consistent.
+  - Choose `client` as <b>Type</b>.
+  - You can leave the <b>Use root affiliation</b> box checked.
   - You can leave the <b>Maximum enrollments</b> blank.
   - Under <b>Attributes</b>, click on <b>Add attribute</b>.  Give attribute as `hf.Registrar.Roles` = `*`.  This will allow this identity to act as registrar and issues identities for our app.  Click <b>Add-attribute</b>.
   - Click <b>Register</b>.
