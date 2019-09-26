@@ -39,6 +39,8 @@ Clone the repository:
 git clone https://github.com/IBM/build-blockchain-insurance-app
 ```
 
+In the editor of choice, make sure [line 8](https://github.com/IBM/build-blockchain-insurance-app/blob/ubuntu/local-fix/web/www/blockchain/config.js#L8) of the `config.js` file to `isCloud: false`. Note that if this is your first time using the repo, this value defaults to `isCloud: false`.
+
 Login using your [docker hub](https://hub.docker.com/) credentials.
 ```bash
 docker login
@@ -53,6 +55,13 @@ cd build-blockchain-insurance-app
 ```
 
 For Ubuntu user:
+
+ Change
+[line 9](https://github.com/IBM/build-blockchain-insurance-app/blob/ubuntu/local-fix/web/www/blockchain/config.js#L9) of `config.js` file to `isUbuntu: true` as shown in the image below:
+
+![Is Ubuntu](images/isUbuntu.png)
+Then, run the following commands in your terminal window:
+
 ```bash
 cd build-blockchain-insurance-app
 ./build_ubuntu.sh
