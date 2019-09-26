@@ -5,6 +5,8 @@ import {
 } from 'path';
 import EventEmitter from 'events';
 
+import config from './config';
+
 import {
   load as loadProto
 } from 'grpc';
@@ -46,15 +48,22 @@ export class OrganizationClient extends EventEmitter {
       pem: ordererConfig.pem,
       'ssl-target-name-override': ordererConfig.hostname
     });
+
     this._channel.addOrderer(orderer);
 
     const defaultPeer = this._client.newPeer(peerConfig.url, {
       pem: peerConfig.pem,
       'ssl-target-name-override': peerConfig.hostname
     });
+
     this._peers.push(defaultPeer);
     this._channel.addPeer(defaultPeer);
-    const defaultEventHub = this._channel.newChannelEventHub(this.defaultPeer);
+    let defaultEventHub;
+    if (config.isUbuntu){
+      defaultEventHub = this._channel.newChannelEventHub(defaultPeer);
+    } else {
+      defaultEventHub = this._channel.newChannelEventHub(this.defaultPeer);
+    }
     this._eventHubs.push(defaultEventHub);
     this._adminUser = null;
   }

@@ -5,6 +5,8 @@ const basePath = resolve(__dirname, '../../certs');
 const readCryptoFile =
   filename => readFileSync(resolve(basePath, filename)).toString();
 const config = {
+  isCloud: false,
+  isUbuntu: false,
   channelName: 'default',
   channelConfig: readFileSync(resolve(__dirname, '../../channel.tx')),
   chaincodeId: 'bcins',

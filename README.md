@@ -73,9 +73,10 @@ We find that Blockchain can be finicky when it comes to installing Node. We want
 
 # Steps
 
-### Steps
-
+# Steps (Local Network)
 > To run a local network, you can find steps [here](./README-local.md)
+
+### Steps (Cloud Network)
 
 1. [Create IBM Cloud services](#step-1-Create-IBM-Cloud-services)
 2. [Build a network - Certificate Authority](#step-2-Build-a-network---Certificate-Authority)
@@ -607,10 +608,26 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   
 ## Step 10. Run the application
 
-Navigate to the root directory of the project:
+Navigate to the directory blockchain directory which contains the [config.js file](https://github.com/IBM/build-blockchain-insurance-app/blob/ubuntu/local-fix/web/www/blockchain/config.js):
   ```bash
-  cd build-blockchain-insurance-app
+  cd build-blockchain-insurance-app/web/www/blockchain/
   ```
+
+In the editor of choice, change [line 8](https://github.com/IBM/build-blockchain-insurance-app/blob/ubuntu/local-fix/web/www/blockchain/config.js#L8) of the `config.js` file to `isCloud: true` as 
+shown in the image below: 
+
+![Is Cloud](images/isCloud.png)
+
+If you are using Mac, save the changes. Otherwise, if you are using an Ubuntu system, change
+[line 9](https://github.com/IBM/build-blockchain-insurance-app/blob/ubuntu/local-fix/web/www/blockchain/config.js#L9) of `config.js` file to `isUbuntu: true` as shown in the image below:
+
+![Is Ubuntu](images/isUbuntu.png)
+
+Next, from the `blockchain` directory navigate to the root project directory:
+```bash
+blockchain$ cd ../../../
+build-blockchain-insurance-app$   
+```
 
 Login using your [docker hub](https://hub.docker.com/) credentials.
 ```bash
@@ -625,7 +642,7 @@ cd build-blockchain-insurance-app
 ./build_mac.sh
 ```
 
-For Ubuntu user:
+For Ubuntu user **Make sure isUbuntu:true is saved in the [line 9](https://github.com/IBM/build-blockchain-insurance-app/blob/ubuntu/local-fix/web/www/blockchain/config.js#L9) of `config.js`**:
 ```bash
 cd build-blockchain-insurance-app
 ./build_ubuntu.sh

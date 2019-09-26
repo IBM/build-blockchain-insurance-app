@@ -9,7 +9,6 @@ import network from './invoke';
 
 import * as util from 'util' // has no default export
 
-
 export async function getContractTypes(shopType) {
   if (!isReady()) {
     return;
@@ -101,7 +100,6 @@ export const removeListener = client.removeListener.bind(client);
 //identity to use for submitting transactions to smart contract
 const peerType = 'shopApp-admin'
 let isQuery = false;
-let isCloud = true;
 
 async function invoke(fcn, ...args) {
 
@@ -110,7 +108,7 @@ async function invoke(fcn, ...args) {
   console.log(`args in shopPeer invoke: ${util.inspect(...args)}`)
   console.log(`func in shopPeer invoke: ${util.inspect(fcn)}`)
 
-  if (isCloud) {
+  if (config.isCloud) {
     await network.invokeCC(isQuery, peerType, fcn, ...args);
   }
 
@@ -126,7 +124,10 @@ async function query(fcn, ...args) {
   console.log(`args in shopPeer query: ${util.inspect(...args)}`)
   console.log(`func in shopPeer query: ${util.inspect(fcn)}`)
 
-  if (isCloud) {
+  console.log('config.isCLoud: ');
+  console.log(config.isCloud);
+
+  if (config.isCloud) {
     await network.invokeCC(isQuery, peerType, fcn, ...args);
   }
 
