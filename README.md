@@ -621,7 +621,7 @@ shown in the image below:
 If you are using Mac, save the changes. Otherwise, if you are using an Ubuntu system, change
 [line 9](https://github.com/IBM/build-blockchain-insurance-app/blob/ubuntu/local-fix/web/www/blockchain/config.js#L9) of `config.js` file to `isUbuntu: true` as shown in the image below:
 
-![Is Ubuntu](images/isUbuntu.png)
+![Is Ubuntu](images/isUbuntuAndCloud.png)
 
 Next, from the `blockchain` directory navigate to the root project directory:
 ```bash
