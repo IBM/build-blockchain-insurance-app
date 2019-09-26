@@ -56,6 +56,11 @@ cd build-blockchain-insurance-app
 
 For Ubuntu user:
 
+**Note: this pattern has been tested, and is working on a system with the following specs:**
+1. Ubuntu Linux 18.04 LTS Bionic Beaver Minimal Install
+2. Docker version 18.09.6, build 481bc77 
+3. docker-compose version 1.24.0, build 0aa59064
+
  Change
 [line 9](https://github.com/IBM/build-blockchain-insurance-app/blob/ubuntu/local-fix/web/www/blockchain/config.js#L9) of `config.js` file to `isUbuntu: true` as shown in the image below:
 
@@ -115,6 +120,22 @@ info: [packager/Golang.js]: packaging GOLANG from bcins
 info: [packager/Golang.js]: packaging GOLANG from bcins
 Successfully installed chaincode on the default channel.
 Successfully instantiated chaincode on all peers.
+```
+
+🚨🚨At this point, if you run into any errors, please check the troubleshooting section at the 
+bottom of the page for 
+common fixes! This is likely due to a difference in Ubuntu, Docker, or Docker-compose version.🚨🚨
+
+
+```
+Peer joined default channel
+Connecting and Registering Block Events
+Chaincode is not installed, attempting installation...
+Base container image present.
+Successfully installed chaincode on the default channel.
+Fatal error instantiating chaincode on some(all) peers!
+Error: Proposal rejected by some (all) of the peers: Error: error starting container: error starting container: API error (404): network build-blockchain-insurance-app_default not found
+    at /app/www/blockchain/utils.js:252:15
 ```
 
 Use the link http://localhost:3000 to load the web application in browser.
@@ -224,10 +245,104 @@ Following is a list of additional blockchain resources:
 
 ## Troubleshooting
 
+If you see any errors, before re running the build script, make sure to clean your system:
+
+
 * Run `clean.sh` to remove the docker images and containers for the insurance network.
 ```bash
 ./clean.sh
 ```
+
+Next, if you see the following error: 
+
+```Peer joined default channel
+Connecting and Registering Block Events
+Chaincode is not installed, attempting installation...
+Base container image present.
+Successfully installed chaincode on the default channel.
+Fatal error instantiating chaincode on some(all) peers!
+Error: Proposal rejected by some (all) of the peers: Error: error starting container: error starting container: API error (404): network build-blockchain-insurance-app_default not found
+    at /app/www/blockchain/utils.js:252:15
+```
+
+Go ahead and update the follwing line in the [peer-base.yaml file](https://github.com/IBM/build-blockchain-insurance-app/blob/master/peer-base.yaml#L7)
+
+It should now read:
+```yaml
+   - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=buildblockchaininsuranceapp_default
+```
+
+I.e. the whole `peer-base.yaml` file should look like the following:
+
+```yaml
+version: '2'
+
+services:
+  peer-base:
+    environment:
+    - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+    - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=buildblockchaininsuranceapp_default
+    - CORE_LOGGING_LEVEL=DEBUG
+    - CORE_PEER_TLS_ENABLED=true
+    - CORE_PEER_ENDORSER_ENABLED=true
+    - CORE_PEER_GOSSIP_USELEADERELECTION=true
+    - CORE_PEER_GOSSIP_ORGLEADER=false
+    - CORE_PEER_PROFILE_ENABLED=true
+    - CORE_PEER_MSPCONFIGPATH=/peer/crypto/msp
+    - CORE_PEER_TLS_CERT_FILE=/peer/crypto/tls/server.crt
+    - CORE_PEER_TLS_KEY_FILE=/peer/crypto/tls/server.key
+    - CORE_PEER_TLS_ROOTCERT_FILE=/peer/crypto/tls/ca.crt
+    working_dir: /peer
+    command: peer node start
+    volumes:
+    - /var/run/:/host/var/run/
+```
+
+Now, try and re-run the build script. If you get the following error after changing the 
+`peer-base.yaml` file, you may need to change the [Dockerfile in the /web directory](https://github.com/IBM/build-blockchain-insurance-app/blob/master/web/Dockerfile).
+
+If you get this error:
+
+```
+Peer joined default channel
+Connecting and Registering Block Events
+Chaincode is not installed, attempting installation...
+Base container image present.
+Successfully installed chaincode on the default channel.
+2019-06-18T17:56:22.641Z - error: [Peer.js]: sendProposal - timed out after:45000
+Fatal error instantiating chaincode on some(all) peers!
+Error: Proposal rejected by some (all) of the peers: Error: REQUEST_TIMEOUT
+at /app/www/blockchain/utils.js:243:15
+at Generator.next ()
+at step (/app/bin/blockchain/utils.js:103:191)
+at /app/bin/blockchain/utils.js:103:361
+at
+at process._tickCallback (internal/process/next_tick.js:188:7)
+npm ERR! code ELIFECYCLE
+```
+
+Go ahead and change the Dockerfile in the /web directory to the following:
+
+```Docker
+FROM docker.io/library/node:8.9.0
+ENV NODE_ENV production
+ENV PORT 3000
+ENV DOCKER_SOCKET_PATH /host/var/run/docker.sock
+ENV DOCKER_CCENV_IMAGE hyperledger/fabric-ccenv:latest
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+RUN npm i && npm i --only=dev \
+&& npm run build \
+&& npm prune
+EXPOSE 3000
+CMD ["npm", "run", "serve"]
+```
+
+Go ahead and run the ./clean script, and then docker login, and then try and run the 
+./build_ubuntu script again. For more info, refer to this issue: https://github.com/IBM/build-blockchain-insurance-app/issues/79
+
+
 ## License
 This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
