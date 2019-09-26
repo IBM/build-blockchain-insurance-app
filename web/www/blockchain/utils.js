@@ -60,10 +60,12 @@ export class OrganizationClient extends EventEmitter {
     this._channel.addPeer(defaultPeer);
     console.log('this.defaultPeer: ');
     console.log(this.defaultPeer)
+    let defaultEventHub;
+    console.log(config.isUbuntu)
     if (config.isUbuntu){
-      const defaultEventHub = this._channel.newChannelEventHub(defaultPeer);
+      defaultEventHub = this._channel.newChannelEventHub(defaultPeer);
     } else {
-      const defaultEventHub = this._channel.newChannelEventHub(this.defaultPeer);
+      defaultEventHub = this._channel.newChannelEventHub(this.defaultPeer);
     }
     this._eventHubs.push(defaultEventHub);
     this._adminUser = null;
