@@ -126,18 +126,6 @@ Successfully instantiated chaincode on all peers.
 bottom of the page for 
 common fixes! This is likely due to a difference in Ubuntu, Docker, or Docker-compose version.🚨🚨
 
-
-```
-Peer joined default channel
-Connecting and Registering Block Events
-Chaincode is not installed, attempting installation...
-Base container image present.
-Successfully installed chaincode on the default channel.
-Fatal error instantiating chaincode on some(all) peers!
-Error: Proposal rejected by some (all) of the peers: Error: error starting container: error starting container: API error (404): network build-blockchain-insurance-app_default not found
-    at /app/www/blockchain/utils.js:252:15
-```
-
 Use the link http://localhost:3000 to load the web application in browser.
 
 The home page shows the participants (Peers) in the network. You can see that there is an Insurance, Repair Shop, Police and Shop Peer implemented. They are the participants of the network.
