@@ -1,3 +1,7 @@
+# WARNING: This repository is no longer maintained :warning:
+
+> This repository will not be updated. I will check periodically for pull requests, but do not expect a quick response. 
+
 *Read this in other languages: [中国語](README-cn.md),[日本語](README-ja.md).*
 
 # Build Blockchain Insurance Application
