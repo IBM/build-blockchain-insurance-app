@@ -86,7 +86,7 @@
     "rimraf": "2.6.2",
     "sass-loader": "6.0.6",
     "script-loader": "0.7.1",
-    "socket.io": "2.0.3",
+    "socket.io": "2.4.0",
     "style-loader": "0.18.2",
     "uuid": "3.1.0",
     "webpack": "3.6.0",
