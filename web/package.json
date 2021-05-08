@@ -61,7 +61,7 @@
     "isomorphic-fetch": "2.2.1",
     "javascript-natural-sort": "0.7.1",
     "json-style-converter": "1.0.3",
-    "lodash": "4.17.11",
+    "lodash": "4.17.21",
     "moment": "2.19.3",
     "moment-timezone": "0.5.13",
     "morgan": "1.9.1",
