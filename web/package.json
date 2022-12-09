@@ -46,7 +46,7 @@
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-react": "7.3.0",
     "exports-loader": "0.6.4",
-    "express": "4.16.4",
+    "express": "4.17.3",
     "express-rate-limit": "2.9.0",
     "fabric-ca-client": "1.4.0",
     "fabric-client": "1.4.0",
